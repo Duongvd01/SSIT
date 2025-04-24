@@ -32,7 +32,8 @@ body {
   width: 100%;
   background: rgba(0, 0, 0, 0.9);
   z-index: 1000;
-  padding: 0.1px 2px;
+  padding: 10px 20px;
+  box-sizing: border-box;
 }
 
 .navbar {
@@ -41,10 +42,11 @@ body {
   align-items: center;
   max-width: 1500px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .navbar .logo {
-  height: 70px;
+  height: 40px;
 }
 
 .hamburger {
@@ -137,6 +139,47 @@ nav ul li a:hover::after {
 
 .language-selector:hover {
   color: var(--accent-color);
+}
+
+/* Phần responsive */
+@media (max-width: 768px) {
+  /* Khi màn hình nhỏ hơn 768px, navbar chuyển thành dạng column */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* Hiển thị navbar khi nhấn hamburger */
+  .navbar.active .nav-menu {
+    display: flex;
+  }
+
+  /* Căn chỉnh phần search và language selector */
+  .header-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
 }
 
 /* Hero 1 */
