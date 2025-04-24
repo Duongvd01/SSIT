@@ -854,22 +854,22 @@ nav ul li a:hover::after {
 
 .stat-card--top-left {
   top: -11px; /* Reduced from -13px */
-  left: -32px; /* Reduced from -36px */
+  left: -100px; /* Reduced from -36px */
 }
 
 .stat-card--top-right {
   top: -11px; /* Reduced from -13px */
-  right: -32px; /* Reduced from -36px */
+  right: -100px; /* Reduced from -36px */
 }
 
 .stat-card--bottom-left {
   bottom: -11px; /* Reduced from -13px */
-  left: -32px; /* Reduced from -36px */
+  left: -100px; /* Reduced from -36px */
 }
 
 .stat-card--bottom-right {
   bottom: -11px; /* Reduced from -13px */
-  right: -32px; /* Reduced from -36px */
+  right: -100px; /* Reduced from -36px */
 }
 
 .stat-card h3 {
@@ -920,13 +920,13 @@ nav ul li a:hover::after {
     font-size: 2.5rem;
   }
   .world-map {
-    max-width: 290px; /* Reduced from 340px by 50px */
+    max-width: 90px; /* Reduced from 340px by 50px */
   }
   .stat-card {
     min-width: 112px; /* Reduced from 127px (127 * (290/340) ≈ 112) */
   }
   .stat-card--top-left {
-    left: -17px; /* Reduced from -20px */
+    left: -10px; /* Reduced from -20px */
   }
   .stat-card--top-right {
     right: -17px; /* Reduced from -20px */
@@ -964,7 +964,7 @@ nav ul li a:hover::after {
     font-size: 1.17rem; /* Reduced from 1.48rem (1.48 * (190/240) ≈ 1.17) */
   }
   .world-map {
-    max-width: 190px; /* Reduced from 240px by 50px */
+    max-width: 1px; /* Reduced from 240px by 50px */
   }
 }
 
@@ -1762,4 +1762,94 @@ nav ul li a:hover::after {
   .footer-legal a {
     font-size: 0.85rem;
   }
+}
+/* Biến body thành container cuộn */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Đảm bảo body cao bằng màn hình */
+  overflow-y: scroll; /* Cho phép cuộn dọc */
+  scroll-snap-type: y mandatory; /* Bắt buộc snap theo trục Y (dọc) */
+  scroll-behavior: smooth; /* Cuộn mượt mà */
+}
+
+/* Làm các section full-screen và snap vào đúng vị trí */
+.section,
+.hero,
+.footer {
+  min-height: 100vh; /* Cao tối thiểu bằng màn hình */
+  scroll-snap-align: start; /* Snap vào đầu mỗi section */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Đảm bảo header cố định không ảnh hưởng snap */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Luôn nằm trên cùng */
+}
+
+/* Subnav cố định ở dưới cùng */
+.subnav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Điều chỉnh padding cho các section */
+.story-highlight,
+.services-industries,
+.global-presence,
+.clients-partners,
+.people-culture,
+.in-the-news {
+  padding: 60px 20px; /* Giảm padding để fit màn hình */
+}
+
+/* Footer cũng snap */
+.footer {
+  padding: 40px 20px;
+  scroll-snap-align: start;
+}
+/* Đảm bảo body có scroll-behavior và transition */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  transition: scroll 1.5s ease; /* Thêm transition để làm chậm cuộn */
+}
+
+/* Các section vẫn giữ nguyên */
+.section,
+.hero,
+.footer {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.language-selector select {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: rgb(123, 116, 116);
+  font-weight: bold;
 }
