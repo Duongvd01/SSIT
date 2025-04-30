@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giới thiệu - FPT Corporation</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/7/71/FPT_Corporation_Logo.png"
+          alt="FPT Logo"
+          class="logo"
+        />
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <div class="nav-menu">
+          <nav>
+            <ul>
+              <li><a href="index.html">Trang chủ</a></li>
+              <li><a href="introduction.html">Giới thiệu</a></li>
+              <li><a href="services.html">Dịch vụ</a></li>
+              <li><a href="industries.html">Ngành nghề</a></li>
+              <li><a href="recruitment.html">Tuyển dụng</a></li>
+              <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+          </nav>
+          <div class="header-actions">
+            <button class="search-btn">
+              <i class="fas fa-search"></i> Tìm kiếm
+            </button>
+            <div class="language-selector">
+              <i class="fas fa-globe"></i>
+              <select>
+                <option value="vi">日本語</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Success Stories -->
+    <section class="section story-highlight" id="success-stories">
+      <div class="section-bg-decor">
+        <img
+          src="https://images.unsplash.com/photo-1556740714-2e7c5e3a7a0b"
+          alt="Decorative Background"
+          class="decor-image"
+        />
+      </div>
+      <div class="section-overlay"></div>
+      <div class="container">
+        <h2 class="section-title">Câu chuyện Thành công</h2>
+        <p class="section-subtitle">Những thành tựu nổi bật của chúng tôi</p>
+        <div class="highlight-wrapper">
+          <div class="highlight-text">
+            <h3>Đổi mới Công nghệ</h3>
+            <p>
+              FPT đã dẫn đầu trong việc cung cấp các giải pháp công nghệ tiên
+              tiến, giúp các doanh nghiệp trên toàn cầu phát triển bền vững.
+            </p>
+            <div class="highlight-actions">
+              <a href="#" class="btn primary">Tìm hiểu thêm</a>
+              <a href="#" class="btn secondary">Xem video</a>
+            </div>
+          </div>
+          <div class="highlight-image">
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+              alt="Success Story"
+            />
+          </div>
+        </div>
+        <div class="story-tabs">
+          <button class="tab active">Công nghệ</button>
+          <button class="tab">Viễn thông</button>
+          <button class="tab">Giáo dục</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chat Button -->
+    <a href="#" class="chat-btn"><i class="fas fa-comment"></i></a>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <h3>Liên kết nhanh</h3>
+          <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="services.html">Dịch vụ</a></li>
+            <li><a href="industries.html">Ngành nghề</a></li>
+            <li><a href="recruitment.html">Tuyển dụng</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-info">
+          <h3>Thông tin</h3>
+          <p><strong>FPT Corporation</strong></p>
+          <p>Địa chỉ: Hà Nội, Việt Nam</p>
+          <p>Email: contact@fpt.com.vn</p>
+          <p>Hotline: 1900 1234</p>
+        </div>
+        <div class="footer-contact">
+          <a href="contact.html" class="contact-btn"
+            ><i class="fas fa-envelope"></i> Liên hệ ngay</a
+          >
+        </div>
+        <div class="footer-legal">
+          <a href="#">Chính sách bảo mật</a>
+          <a href="#">Điều khoản sử dụng</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.querySelector(".nav-menu");
+
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+
+      document.querySelectorAll(".nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

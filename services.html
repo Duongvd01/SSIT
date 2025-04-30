@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dịch vụ - FPT Corporation</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/7/71/FPT_Corporation_Logo.png"
+          alt="FPT Logo"
+          class="logo"
+        />
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <div class="nav-menu">
+          <nav>
+            <ul>
+              <li><a href="index.html">Trang chủ</a></li>
+              <li><a href="introduction.html">Giới thiệu</a></li>
+              <li><a href="services.html">Dịch vụ</a></li>
+              <li><a href="industries.html">Ngành nghề</a></li>
+              <li><a href="recruitment.html">Tuyển dụng</a></li>
+              <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+          </nav>
+          <div class="header-actions">
+            <button class="search-btn">
+              <i class="fas fa-search"></i> Tìm kiếm
+            </button>
+            <div class="language-selector">
+              <i class="fas fa-globe"></i>
+              <select>
+                <option value="vi">日本語</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Services -->
+    <section class="section services-industries" id="services-industries">
+      <div class="section-bg-decor">
+        <img
+          src="https://images.unsplash.com/photo-1556740714-2e7c5e3a7a0b"
+          alt="Decorative Background"
+          class="decor-image"
+        />
+      </div>
+      <div class="section-overlay"></div>
+      <div class="container">
+        <h2 class="section-title">Dịch vụ</h2>
+        <p class="section-subtitle">
+          Khám phá các dịch vụ cốt lõi của chúng tôi
+        </p>
+        <div class="service-grid">
+          <div class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+              alt="Technology"
+            />
+            <h4>Công nghệ</h4>
+          </div>
+          <div class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+              alt="Telecom"
+            />
+            <h4>Viễn thông</h4>
+          </div>
+          <div class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+              alt="Education"
+            />
+            <h4>Giáo dục</h4>
+          </div>
+          <div class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0"
+              alt="Digital Transformation"
+            />
+            <h4>Chuyển đổi số</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chat Button -->
+    <a href="#" class="chat-btn"><i class="fas fa-comment"></i></a>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <h3>Liên kết nhanh</h3>
+          <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="services.html">Dịch vụ</a></li>
+            <li><a href="industries.html">Ngành nghề</a></li>
+            <li><a href="recruitment.html">Tuyển dụng</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-info">
+          <h3>Thông tin</h3>
+          <p><strong>FPT Corporation</strong></p>
+          <p>Địa chỉ: Hà Nội, Việt Nam</p>
+          <p>Email: contact@fpt.com.vn</p>
+          <p>Hotline: 1900 1234</p>
+        </div>
+        <div class="footer-contact">
+          <a href="contact.html" class="contact-btn"
+            ><i class="fas fa-envelope"></i> Liên hệ ngay</a
+          >
+        </div>
+        <div class="footer-legal">
+          <a href="#">Chính sách bảo mật</a>
+          <a href="#">Điều khoản sử dụng</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.querySelector(".nav-menu");
+
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+
+      document.querySelectorAll(".nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

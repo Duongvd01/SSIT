@@ -30,7 +30,7 @@
       <div class="navbar">
         <a href="index.html">
           <img
-            src="src\2-removebg-preview.png"
+            src="src\Screenshot_2025-04-24_204546-removebg-preview.png"
             alt="SS IT Joint Stock Company Logo"
             class="logo"
           />
@@ -40,7 +40,9 @@
         </button>
         <nav aria-label="Main navigation" class="nav-menu">
           <ul>
-            <li><a href="about.html" data-translate="about">About</a></li>
+            <li>
+              <a href="introduction.html" data-translate="about">About</a>
+            </li>
             <li>
               <a href="services.html" data-translate="services">Services</a>
             </li>
@@ -1349,6 +1351,12 @@
           }
         }
       })();
+      AOS.init({
+        duration: 600,
+        once: true,
+        debounceDelay: 50,
+        throttleDelay: 99,
+      });
     </script>
   </body>
 </html>

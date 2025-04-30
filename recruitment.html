@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuyển dụng - FPT Corporation</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* Additional styles specific to recruitment.html */
+      .job-card {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s ease;
+        padding: 20px;
+        text-align: left;
+      }
+
+      .job-card h4 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+
+      .job-card p {
+        font-size: 0.95rem;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .job-card .job-details {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        margin-bottom: 20px;
+      }
+
+      .job-card .job-details span {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .job-card:hover {
+        transform: scale(1.03);
+      }
+
+      @media (max-width: 768px) {
+        .job-card {
+          padding: 15px;
+        }
+
+        .job-card h4 {
+          font-size: 1.2rem;
+        }
+
+        .job-card p {
+          font-size: 0.9rem;
+        }
+
+        .job-card .job-details {
+          font-size: 0.85rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .job-card {
+          padding: 10px;
+        }
+
+        .job-card h4 {
+          font-size: 1.1rem;
+        }
+
+        .job-card p {
+          font-size: 0.85rem;
+        }
+
+        .job-card .job-details {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/7/71/FPT_Corporation_Logo.png"
+          alt="FPT Logo"
+          class="logo"
+        />
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <div class="nav-menu">
+          <nav>
+            <ul>
+              <li><a href="index.html">Trang chủ</a></li>
+              <li><a href="introduction.html">Giới thiệu</a></li>
+              <li><a href="services.html">Dịch vụ</a></li>
+              <li><a href="industries.html">Ngành nghề</a></li>
+              <li><a href="recruitment.html">Tuyển dụng</a></li>
+              <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+          </nav>
+          <div class="header-actions">
+            <button class="search-btn">
+              <i class="fas fa-search"></i> Tìm kiếm
+            </button>
+            <div class="language-selector">
+              <i class="fas fa-globe"></i>
+              <select>
+                <option value="vi">日本語</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Recruitment Section -->
+    <section class="section" id="recruitment">
+      <div class="section-bg-decor">
+        <img
+          src="https://images.unsplash.com/photo-1556740714-2e7c5e3a7a0b"
+          alt="Decorative Background"
+          class="decor-image"
+        />
+      </div>
+      <div class="section-overlay"></div>
+      <div class="container">
+        <h2 class="section-title">Tuyển dụng</h2>
+        <p class="section-subtitle">
+          Tham gia đội ngũ của chúng tôi và cùng tạo nên tương lai!
+        </p>
+        <div class="service-grid">
+          <div class="job-card">
+            <h4>Lập trình viên Full-Stack</h4>
+            <p>Phát triển các ứng dụng web hiện đại với công nghệ mới nhất.</p>
+            <div class="job-details">
+              <span><i class="fas fa-map-marker-alt"></i> Hà Nội</span>
+              <span><i class="fas fa-briefcase"></i> Toàn thời gian</span>
+              <span><i class="fas fa-dollar-sign"></i> 20-30 triệu VNĐ</span>
+            </div>
+            <a href="#" class="btn primary">Ứng tuyển ngay</a>
+          </div>
+          <div class="job-card">
+            <h4>Chuyên viên Phân tích Dữ liệu</h4>
+            <p>Phân tích dữ liệu để hỗ trợ ra quyết định chiến lược.</p>
+            <div class="job-details">
+              <span><i class="fas fa-map-marker-alt"></i> TP. Hồ Chí Minh</span>
+              <span><i class="fas fa-briefcase"></i> Toàn thời gian</span>
+              <span><i class="fas fa-dollar-sign"></i> 25-35 triệu VNĐ</span>
+            </div>
+            <a href="#" class="btn primary">Ứng tuyển ngay</a>
+          </div>
+          <div class="job-card">
+            <h4>Nhân viên Kinh doanh</h4>
+            <p>Tìm kiếm và phát triển khách hàng trong lĩnh vực công nghệ.</p>
+            <div class="job-details">
+              <span><i class="fas fa-map-marker-alt"></i> Đà Nẵng</span>
+              <span><i class="fas fa-briefcase"></i> Toàn thời gian</span>
+              <span><i class="fas fa-dollar-sign"></i> 15-25 triệu VNĐ</span>
+            </div>
+            <a href="#" class="btn primary">Ứng tuyển ngay</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chat Button -->
+    <a href="#" class="chat-btn"><i class="fas fa-comment"></i></a>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <h3>Liên kết nhanh</h3>
+          <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="services.html">Dịch vụ</a></li>
+            <li><a href="industries.html">Ngành nghề</a></li>
+            <li><a href="recruitment.html">Tuyển dụng</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-info">
+          <h3>Thông tin</h3>
+          <p><strong>FPT Corporation</strong></p>
+          <p>Địa chỉ: Hà Nội, Việt Nam</p>
+          <p>Email: contact@fpt.com.vn</p>
+          <p>Hotline: 1900 1234</p>
+        </div>
+        <div class="footer-contact">
+          <a href="contact.html" class="contact-btn"
+            ><i class="fas fa-envelope"></i> Liên hệ ngay</a
+          >
+        </div>
+        <div class="footer-legal">
+          <a href="#">Chính sách bảo mật</a>
+          <a href="#">Điều khoản sử dụng</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.querySelector(".nav-menu");
+
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+
+      document.querySelectorAll(".nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>
