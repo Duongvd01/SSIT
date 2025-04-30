@@ -25,6 +25,38 @@
     <link rel="icon" href="src\ssit-removebg-preview.ico" type="image/x-icon" />
   </head>
   <body>
+    <!-- Chat Button -->
+    <a href="#chat" class="chat-btn" aria-label="Chat with us">
+      <i class="fas fa-comment"></i>
+    </a>
+
+    <!-- Chat Window -->
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">
+        <h3 data-translate="chatbot_title">SS IT Chatbot</h3>
+        <button class="close-chat" aria-label="Close chat">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="chat-body" id="chatBody">
+        <div class="message bot-message">
+          <p data-translate="chatbot_greeting">
+            Hello! I am SS IT Vietnam's chatbot. How can I assist you today?
+          </p>
+        </div>
+      </div>
+      <div class="chat-footer">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Type your message..."
+          data-translate-placeholder="chat_input_placeholder"
+        />
+        <button id="sendMessage" aria-label="Send message">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
     <!-- Header -->
     <header class="header" data-aos="fade-down">
       <div class="navbar">
@@ -1316,6 +1348,130 @@
           }
         }
       })();
+      // Chat Window Toggle
+      const chatBtn = document.querySelector(".chat-btn");
+      const chatWindow = document.getElementById("chatWindow");
+      const closeChat = document.querySelector(".close-chat");
+
+      chatBtn.addEventListener("click", () => {
+        chatWindow.classList.toggle("active");
+      });
+
+      closeChat.addEventListener("click", () => {
+        chatWindow.classList.remove("active");
+      });
+
+      // Gemini API Integration
+      const chatBody = document.getElementById("chatBody");
+      const chatInput = document.getElementById("chatInput");
+      const sendMessage = document.getElementById("sendMessage");
+
+      // Hàm hiển thị typing indicator
+      function showTypingIndicator() {
+        const typingDiv = document.createElement("div");
+        typingDiv.classList.add("typing-indicator");
+        typingDiv.innerHTML = `<span></span><span></span><span></span>`;
+        typingDiv.id = "typingIndicator";
+        chatBody.appendChild(typingDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+
+      // Hàm xóa typing indicator
+      function removeTypingIndicator() {
+        const typingIndicator = document.getElementById("typingIndicator");
+        if (typingIndicator) {
+          typingIndicator.remove();
+        }
+      }
+
+      async function sendMessageToGemini(message) {
+        const apiKey = "AIzaSyAXnQcv3OiRfZlA7dqxcpy_P42x08BkxuU"; // Thay bằng API key của mày
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [
+                  {
+                    text:
+                      "Bạn là chatbot của SS IT Việt Nam, trả lời chuyên nghiệp và thân thiện. Câu hỏi: " +
+                      message,
+                  },
+                ],
+              },
+            ],
+          }),
+        });
+
+        const data = await response.json();
+        return data.candidates[0].content.parts[0].text;
+      }
+
+      sendMessage.addEventListener("click", async () => {
+        const message = chatInput.value.trim();
+        if (!message) return;
+
+        // Hiển thị tin nhắn người dùng
+        const userMessage = document.createElement("div");
+        userMessage.classList.add("message", "user-message");
+        userMessage.innerHTML = `<p>${message}</p>`;
+        chatBody.appendChild(userMessage);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Xóa input
+        chatInput.value = "";
+
+        // Hiển thị typing indicator
+        showTypingIndicator();
+
+        // Gọi Gemini API
+        try {
+          const botResponse = await sendMessageToGemini(message);
+
+          // Xóa typing indicator
+          removeTypingIndicator();
+
+          // Hiển thị phản hồi từ bot
+          const botMessage = document.createElement("div");
+          botMessage.classList.add("message", "bot-message");
+          botMessage.innerHTML = `<p>${botResponse}</p>`;
+          chatBody.appendChild(botMessage);
+          chatBody.scrollTop = chatBody.scrollHeight;
+        } catch (error) {
+          // Xóa typing indicator
+          removeTypingIndicator();
+
+          const lang = document.getElementById("languageSwitcher").value;
+          const errorMessage = document.createElement("div");
+          errorMessage.classList.add("message", "bot-message");
+          const errorText =
+            translations[lang]["chat_error"] ||
+            "Error: Could not connect to API. Please try again later.";
+          errorMessage.innerHTML = `<p>${errorText}</p>`;
+          chatBody.appendChild(errorMessage);
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }
+      });
+
+      // Gửi tin nhắn khi nhấn Enter
+      chatInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          sendMessage.click();
+        }
+      });
+
+      // Cập nhật placeholder của input trong hàm updateLanguage
+      const originalUpdateLanguage = updateLanguage;
+      updateLanguage = (lang) => {
+        originalUpdateLanguage(lang);
+        const chatInput = document.getElementById("chatInput");
+        chatInput.placeholder = translations[lang]["chat_input_placeholder"];
+      };
     </script>
     <script>
       (function () {
