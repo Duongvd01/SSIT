@@ -23,6 +23,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
     <link rel="icon" href="src\ssit-removebg-preview.ico" type="image/x-icon" />
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.28/dist/lenis.min.js"></script>
   </head>
   <body>
     <!-- Chat Button -->
@@ -820,7 +821,7 @@
             "Building an inclusive, future-ready and happy workforce, while allowing our team to thrive on challenging missions and benefit from the latest technologies",
           culture_happiness: "Thriving On Happiness",
           culture_learning: "Learning & Innovation",
-          culture_celebration: "Culture Of Celebration年生",
+          culture_celebration: "Culture Of Celebration",
           culture_diversity: "Diversity & Inclusion",
           in_the_news_title: "We Go The Extra Mile",
           extra_mile: "Extra Mile",
@@ -1204,115 +1205,55 @@
       updateLanguage(savedLang);
     </script>
     <script>
-      // Smooth scroll function with ease-in-out and custom duration
-      function smoothScrollTo(targetY, duration) {
-        const startY = window.pageYOffset;
-        const distance = targetY - startY;
-        let startTime = null;
-
-        function animation(currentTime) {
-          if (startTime === null) startTime = currentTime;
-          const timeElapsed = currentTime - startTime;
-          const progress = Math.min(timeElapsed / duration, 1);
-          const ease = progress * (2 - progress); // ease-in-out
-
-          window.scrollTo(0, startY + distance * ease);
-
-          if (timeElapsed < duration) {
-            requestAnimationFrame(animation);
-          }
-        }
-
-        requestAnimationFrame(animation);
-      }
-
-      // Get all sections
-      const sections = document.querySelectorAll(".hero, .section, .footer");
-      let currentSectionIndex = 0;
-      let lastScrollTime = 0;
-      const scrollCooldown = 1700; // 1.6 seconds for smoothness and to prevent spam
-
-      // Scroll to specific section
-      function scrollToSection(index) {
-        if (index >= 0 && index < sections.length) {
-          const targetSection = sections[index];
-          const targetY =
-            targetSection.getBoundingClientRect().top + window.pageYOffset;
-          smoothScrollTo(targetY, scrollCooldown);
-          currentSectionIndex = index;
-        }
-      }
-
-      // Prevent default scroll behavior
-      window.addEventListener("wheel", (event) => event.preventDefault(), {
-        passive: false,
+      // Initialize Lenis for smooth scrolling
+      const lenis = new Lenis({
+        duration: 1.2, // Adjust for smoother or faster scrolling
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Ease-in-out
+        smooth: true,
+        smoothTouch: true, // Enable smooth scrolling on touch devices
+        wheelMultiplier: 0.8, // Adjust scroll sensitivity
+        touchMultiplier: 2, // Adjust touch sensitivity
       });
 
-      // Handle mouse wheel or touchpad
-      window.addEventListener(
-        "wheel",
-        (event) => {
-          const now = Date.now();
+      // Animation frame for Lenis
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
 
-          if (now - lastScrollTime < scrollCooldown) return;
+      requestAnimationFrame(raf);
 
-          if (event.deltaY > 0) {
-            // Scroll down
-            if (currentSectionIndex < sections.length - 1) {
-              scrollToSection(currentSectionIndex + 1);
-            }
-          } else {
-            // Scroll up
-            if (currentSectionIndex > 0) {
-              scrollToSection(currentSectionIndex - 1);
-            }
-          }
-
-          lastScrollTime = now;
-        },
-        { passive: false }
-      );
-
-      // Handle clicks on subnav links
+      // Sync Lenis with subnav link clicks
       document.querySelectorAll(".subnav a").forEach((link) => {
         link.addEventListener("click", (e) => {
           e.preventDefault();
           const targetId = link.getAttribute("href").substring(1);
           const targetSection = document.getElementById(targetId);
           if (targetSection) {
-            const index = Array.from(sections).indexOf(targetSection);
-            scrollToSection(index);
+            lenis.scrollTo(targetSection, {
+              duration: 1.5,
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+              offset: -50, // Adjust for header offset
+            });
           }
         });
       });
 
-      // (Optional) Support touch for mobile devices
-      let touchStartY = 0;
-      window.addEventListener("touchstart", (e) => {
-        touchStartY = e.touches[0].clientY;
-      });
-
-      window.addEventListener("touchend", (e) => {
-        const touchEndY = e.changedTouches[0].clientY;
-        const deltaY = touchStartY - touchEndY;
-
-        const now = Date.now();
-        if (now - lastScrollTime < scrollCooldown) return;
-
-        if (deltaY > 50) {
-          // Swipe up -> scroll down
-          if (currentSectionIndex < sections.length - 1) {
-            scrollToSection(currentSectionIndex + 1);
-          }
-        } else if (deltaY < -50) {
-          // Swipe down -> scroll up
-          if (currentSectionIndex > 0) {
-            scrollToSection(currentSectionIndex - 1);
-          }
-        }
-
-        lastScrollTime = now;
-      });
+      // Pause/resume video playback based on visibility
+      const videos = document.querySelectorAll("video");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.play();
+            } else {
+              entry.target.pause();
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      videos.forEach((video) => observer.observe(video));
     </script>
     <script>
       (function () {
@@ -1507,11 +1448,24 @@
           }
         }
       })();
+      document
+        .querySelectorAll(".service-card, .partner-card")
+        .forEach((card) => {
+          card.addEventListener("mouseenter", () => {
+            card.style.willChange = "transform";
+          });
+          card.addEventListener("mouseleave", () => {
+            card.style.willChange = "auto";
+          });
+        });
+    </script>
+    <script>
       AOS.init({
-        duration: 600,
+        duration: 400,
+        easing: "ease-out",
         once: true,
-        debounceDelay: 50,
-        throttleDelay: 99,
+        mirror: false,
+        throttleDelay: 50,
       });
     </script>
   </body>
