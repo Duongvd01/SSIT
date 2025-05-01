@@ -22,8 +22,391 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" href="src\ssit-removebg-preview.ico" type="image/x-icon" />
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.28/dist/lenis.min.js"></script>
+    <style>
+      :root {
+        --primary-orange: #ff6200;
+        --dark-orange: #ff8c00;
+        --black: #000000;
+        --dark-gray: #333333;
+        --white: #ffffff;
+        --primary-gradient: linear-gradient(135deg, #ff6200, #ff8c00);
+        --glass-bg: rgba(255, 255, 255, 0.9);
+        --glass-border: 1px solid rgba(255, 98, 0, 0.2);
+        --card-shadow: 0 4px 12px rgba(255, 98, 0, 0.3);
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--white);
+        color: var(--black);
+      }
+
+      /* Hero Section */
+      .hero-section {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        text-align: center;
+        padding: 0 20px;
+        overflow: hidden;
+      }
+
+      .hero-section video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+      }
+
+      .hero-content p {
+        font-size: 1.5rem;
+        font-weight: 300;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .hero-btn {
+        background: var(--primary-gradient);
+        color: var(--black);
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+      }
+
+      .hero-btn:hover {
+        transform: scale(1.05);
+      }
+
+      .video-btn {
+        background: transparent;
+        border: 2px solid var(--primary-orange);
+        color: var(--white);
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+
+      .video-btn i {
+        font-size: 1.2rem;
+      }
+
+      .video-btn:hover {
+        background: var(--primary-orange);
+        color: var(--black);
+        transform: scale(1.05);
+      }
+
+      /* Section Styling */
+      .section {
+        position: relative;
+        padding: 80px 0;
+        background: var(--white);
+        color: var(--black);
+        overflow: hidden;
+      }
+
+      .section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("src/abstract-bg.png") center/cover no-repeat;
+        opacity: 0.05;
+        z-index: 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-orange);
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        font-weight: 300;
+        color: var(--dark-gray);
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .highlight-text {
+        background: var(--glass-bg);
+        border: var(--glass-border);
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        color: var(--black);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Culture Cards */
+      .culture-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .culture-card {
+        background: var(--white);
+        border: 2px solid var(--primary-orange);
+        border-radius: 15px;
+        padding: 20px;
+        width: 280px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .culture-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--card-shadow);
+      }
+
+      .culture-card i {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        color: var(--primary-orange);
+        animation: pulse 2s infinite;
+      }
+
+      .culture-card h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--primary-orange);
+        margin-bottom: 10px;
+      }
+
+      .culture-card p {
+        font-size: 1rem;
+        color: var(--dark-gray);
+      }
+
+      /* Board Member Cards */
+      .culture-card img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border: 3px solid var(--primary-orange);
+        transition: transform 0.3s ease;
+      }
+
+      .culture-card:hover img {
+        transform: scale(1.1);
+      }
+
+      .culture-card .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.3s ease;
+        border-radius: 15px;
+      }
+
+      .culture-card:hover .overlay {
+        opacity: 1;
+      }
+
+      .culture-card .overlay a {
+        color: var(--primary-orange);
+        font-size: 1.5rem;
+        text-decoration: none;
+      }
+
+      /* Subnav Styling
+      .subnav {
+        background: var(--white);
+        border-top: 1px solid var(--primary-orange);
+        padding: 10px 0;
+        position: sticky;
+        bottom: 0;
+        z-index: 1000;
+      }
+
+      .subnav a {
+        position: relative;
+        padding-bottom: 5px;
+        color: var(--black);
+        transition: color 0.3s ease;
+      }
+
+      .subnav a:hover {
+        color: var(--primary-orange);
+      }
+
+      .subnav a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary-gradient);
+        transition: width 0.3s ease;
+      }
+
+      .subnav a:hover::after {
+        width: 100%;
+      } */
+
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--primary-gradient);
+        color: var(--black);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        z-index: 1000;
+      }
+
+      .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        transform: scale(1.1);
+      }
+
+      /* Contact Button in Footer */
+      .contact-btn {
+        background: var(--primary-gradient);
+        color: var(--black);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: transform 0.3s ease;
+      }
+
+      .contact-btn:hover {
+        transform: scale(1.05);
+      }
+
+      /* Animations */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero-section {
+          height: 80vh;
+        }
+
+        .hero-content p {
+          font-size: 1.2rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .section {
+          padding: 50px 0;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .section-subtitle {
+          font-size: 1rem;
+        }
+
+        .culture-card {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .subnav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .subnav li {
+          margin: 10px 0;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Chat Button -->
@@ -58,6 +441,7 @@
         </button>
       </div>
     </div>
+
     <!-- Header -->
     <header class="header" data-aos="fade-down">
       <div class="navbar">
@@ -106,543 +490,204 @@
       </div>
     </header>
 
-    <!-- Hero 1 (Video Background) -->
-    <section id="home" class="hero">
-      <div class="hero-bg-decor">
-        <video
-          class="decor-image"
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="auto"
-          aria-label="Decorative Background Video"
-        >
-          <source src="src/30200-380473759.mp4" type="video/mp4" />
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section" data-aos="fade-up">
+        <video autoplay muted loop playsinline>
+          <source src="src\215500.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-      </div>
-      <div class="hero-content">
-        <h1 data-aos="fade-up" data-translate="hero_title">
-          We Are A Comprehensive Technology Enabler
-        </h1>
-        <p
-          data-aos="fade-up"
-          data-aos-delay="200"
-          data-translate="hero_subtitle"
-        >
-          For Complex Business Challenges And Opportunities
-        </p>
-        <a
-          href="#overview"
-          class="scroll-btn"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          <i class="fas fa-chevron-down"></i>
-          <span data-translate="scroll_explore">Scroll to Explore</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Success Stories -->
-    <section
-      id="success-stories"
-      class="section story-highlight"
-      data-aos="fade-up"
-    >
-      <div class="section-bg-decor">
-        <video
-          class="decor-image"
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="auto"
-          aria-label="Success Stories Background Video"
-        >
-          <source src="src/215500.mp4" type="video/mp4" />
-          Your browser does not support the video tag. Please ensure the video
-          file exists and is in a supported format.
-        </video>
-      </div>
-      <div class="section-overlay"></div>
-      <div class="container">
-        <h2 class="section-title" data-translate="success_stories_title">
-          Success Stories
-        </h2>
-        <p class="section-subtitle" data-translate="success_stories_subtitle">
-          Transforming Businesses with Technology
-        </p>
-        <div class="highlight-wrapper" id="highlight-content">
-          <div class="highlight-text">
-            <h3 id="story-title" data-translate="story_digital_title">
-              Digital Transformation with SSIT
-            </h3>
-            <p
-              id="story-description"
-              data-translate="story_digital_description"
+        <div class="hero-content">
+          <p data-translate="hero_text">
+            Empowering the Future with Cutting-Edge Technology<br />
+            Your Trusted Partner in IoT, AI, Blockchain, and Web Development<br />
+            Driving Digital Transformation for a Sustainable Tomorrow
+          </p>
+          <div class="hero-buttons">
+            <a href="#story" class="hero-btn" data-translate="discover_story"
+              >Discover the SS IT Story</a
             >
-              A leading Vietnamese enterprise needed a robust HR and project
-              management system to streamline operations—handling employee data,
-              task assignments, and progress tracking. In just 3 months, SSIT
-              delivered a scalable web solution using React and Node.js,
-              enhancing productivity and operational efficiency.
+            <a href="src\215500.mp4" class="video-btn">
+              <i class="fas fa-play"></i>
+              <span data-translate="watch_video">Watch the video</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Company Introduction -->
+      <section class="section" id="company-intro" data-aos="fade-up">
+        <div class="container">
+          <h2 class="section-title" data-translate="company_intro_title">
+            About SS IT
+          </h2>
+          <p class="section-subtitle" data-translate="company_intro_subtitle">
+            Empowering businesses with cutting-edge technology solutions
+          </p>
+          <div class="highlight-text">
+            <p data-translate="company_intro_description">
+              SS IT Joint Stock Company, founded in 2023, is a leading
+              technology enabler based in Hanoi, Vietnam. We specialize in
+              delivering innovative solutions in IoT, AI, blockchain, and web
+              development to address complex business challenges. Our mission is
+              to empower organizations worldwide with scalable, future-ready
+              technologies, fostering digital transformation and sustainable
+              growth. With a commitment to excellence and a client-centric
+              approach, SS IT is your trusted partner in navigating the digital
+              landscape.
             </p>
-            <div class="highlight-actions">
-              <a href="#" class="btn primary" data-translate="read_more"
-                >Read More</a
-              >
-              <a href="#" class="btn secondary">
-                <i class="fas fa-download"></i>
-                <span data-translate="download_report">Download Report</span>
-              </a>
-            </div>
-          </div>
-          <div class="highlight-image">
-            <img
-              id="story-image"
-              src="src/1.png"
-              alt="SSIT Case Study"
-              loading="lazy"
-            />
           </div>
         </div>
-        <div class="story-tabs">
-          <button
-            class="tab active"
-            onclick="showStory('digital')"
-            data-translate="story_digital_title"
-          >
-            Digital Transformation with SSIT
-          </button>
-          <button
-            class="tab"
-            onclick="showStory('chatbot')"
-            data-translate="story_chatbot_title"
-          >
-            AI-Powered Chatbot Integration
-          </button>
-          <button
-            class="tab"
-            onclick="showStory('cloud')"
-            data-translate="story_cloud_title"
-          >
-            Cloud Optimization Solutions
-          </button>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Services & Industries -->
-    <section
-      id="services-industries"
-      class="section services-industries full-screen-section"
-      data-aos="fade-up"
-    >
-      <div class="container">
-        <h2 class="section-title" data-translate="services_industries_title">
-          Harness Continuous Innovation & AI
-        </h2>
-        <p
-          class="section-subtitle"
-          data-translate="services_industries_subtitle"
-        >
-          In all of SSIT’s comprehensive services and solutions, AI is embedded
-          as an accelerator to enable new levels of performance for clients and
-          enhance efficiency in our own operations.
-        </p>
-        <div class="service-grid">
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 164947.png"
-              alt="Data"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=Data'; this.onerror=null;"
-            />
-            <h4 data-translate="service_data">Data</h4>
-          </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165134.png"
-              alt="Artificial Intelligence"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=AI'; this.onerror=null;"
-            />
-            <h4 data-translate="service_ai">Artificial Intelligence</h4>
-          </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165211.png"
-              alt="Low-Code"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=Low-Code'; this.onerror=null;"
-            />
-            <h4 data-translate="service_low_code">Low-Code</h4>
-          </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165318.png"
-              alt="Hyper Automation"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=Hyper+Automation'; this.onerror=null;"
-            />
-            <h4 data-translate="service_hyper_automation">Hyper Automation</h4>
-          </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165706.png"
-              alt="ERP Modernization"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=ERP+Modernization'; this.onerror=null;"
-            />
-            <h4 data-translate="service_erp_modernization">
-              ERP Modernization
-            </h4>
-          </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165739.png"
-              alt="Digital Commerce & Experience"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=Digital+Commerce'; this.onerror=null;"
-            />
-            <h4 data-translate="service_digital_commerce">
-              Digital Commerce & Experience
-            </h4>
-          </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165818.png"
-              alt="Legacy Modernization"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=Legacy+Modernization'; this.onerror=null;"
-            />
-            <h4 data-translate="service_legacy_modernization">
-              Legacy Modernization
-            </h4>
-          </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165925.png"
-              alt="Global IT Services"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=Global+IT+Services'; this.onerror=null;"
-            />
-            <h4 data-translate="service_global_it">Global IT Services</h4>
+      <!-- Core Values -->
+      <section class="section" id="core-values" data-aos="fade-up">
+        <div class="container">
+          <h2 class="section-title" data-translate="core_values_title">
+            Our Core Values
+          </h2>
+          <p class="section-subtitle" data-translate="core_values_subtitle">
+            Guiding principles that define our culture and drive our success
+          </p>
+          <div class="culture-cards">
+            <div class="culture-card" data-aos="zoom-in" data-aos-delay="100">
+              <i class="fas fa-lightbulb"></i>
+              <h3 data-translate="value_innovation">Innovation</h3>
+              <p data-translate="value_innovation_description">
+                We embrace creativity and cutting-edge technologies to deliver
+                transformative solutions.
+              </p>
+            </div>
+            <div class="culture-card" data-aos="zoom-in" data-aos-delay="200">
+              <i class="fas fa-shield-alt"></i>
+              <h3 data-translate="value_integrity">Integrity</h3>
+              <p data-translate="value_integrity_description">
+                We uphold the highest standards of honesty and transparency in
+                all our actions.
+              </p>
+            </div>
+            <div class="culture-card" data-aos="zoom-in" data-aos-delay="300">
+              <i class="fas fa-users"></i>
+              <h3 data-translate="value_collaboration">Collaboration</h3>
+              <p data-translate="value_collaboration_description">
+                We foster teamwork and partnerships to achieve shared goals and
+                success.
+              </p>
+            </div>
+            <div class="culture-card" data-aos="zoom-in" data-aos-delay="400">
+              <i class="fas fa-star"></i>
+              <h3 data-translate="value_excellence">Excellence</h3>
+              <p data-translate="value_excellence_description">
+                We strive for outstanding quality and performance in everything
+                we do.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Global Presence -->
-    <section
-      id="global-presence"
-      class="section global-presence scroll-section compact"
-      data-aos="fade-up"
-    >
-      <div class="section-bg-decor">
-        <video
-          class="decor-image"
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="auto"
-          aria-label="Global Presence Background Video"
-        >
-          <source src="src/30200-380473759.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="section-overlay"></div>
-      <div class="container">
-        <h2 class="section-title" data-translate="global_presence_title">
-          Being There
-          <span class="highlight" data-translate="wherever">Wherever,</span
-          ><br />
-          <span class="highlight" data-translate="whenever">Whenever</span> You
-          Need Us
-        </h2>
-        <div class="global-stats-wrapper">
-          <div class="global-stats">
-            <div class="stat-card stat-card--top-left">
-              <h3>88</h3>
-              <p data-translate="branches_offices">
-                Branches & Representative offices
-              </p>
-            </div>
-            <div class="stat-card stat-card--top-right">
-              <h3>33,000+</h3>
-              <p data-translate="employees">Employees</p>
-            </div>
-            <div class="stat-card stat-card--bottom-left">
-              <h3>1,100+</h3>
-              <p data-translate="global_clients">Global Clients</p>
-            </div>
-            <div class="stat-card stat-card--bottom-right">
-              <h3>30</h3>
-              <p data-translate="countries_territories">
-                Countries & Territories
-              </p>
-            </div>
-          </div>
-          <div class="map-wrapper">
-            <img
-              src="src/Thiết kế chưa có tên.png"
-              alt="Our Global Reach"
-              class="world-map"
-              onerror="this.src='https://via.placeholder.com/800x400?text=World+Map'; this.onerror=null;"
-            />
-          </div>
-        </div>
-        <a
-          href="#"
-          class="btn primary explore-btn"
-          data-translate="explore_global_delivery"
-        >
-          Explore our Global Delivery Model <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-    </section>
-    <!-- Clients & Partners -->
-    <section
-      id="clients-partners"
-      class="section clients-partners full-screen-section"
-      data-aos="fade-up"
-    >
-      <div class="container">
-        <h2 class="section-title" data-translate="clients_partners_title">
-          Beyond A Partner
-        </h2>
-        <p class="section-subtitle" data-translate="clients_partners_subtitle">
-          Committed to bringing you speed to success, scalability, proven
-          quality of delivery, through a strong commitment to global compliance
-          standards.
-        </p>
-        <a
-          href="#"
-          class="btn primary explore-btn"
-          data-translate="explore_case_studies"
-        >
-          Explore our Case Studies <i class="fas fa-arrow-right"></i>
-        </a>
-        <div class="partner-carousel">
-          <button
-            class="carousel-btn prev-btn"
-            onclick="scrollCarousel('partner-carousel', -1)"
-          >
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <div class="partner-grid" id="partner-carousel">
-            <div class="partner-card">
+      <!-- Board of Directors -->
+      <section class="section" id="board-directors" data-aos="fade-up">
+        <div class="container">
+          <h2 class="section-title" data-translate="board_directors_title">
+            Board of Directors
+          </h2>
+          <p class="section-subtitle" data-translate="board_directors_subtitle">
+            Meet the leaders driving SS IT’s vision and growth
+          </p>
+          <div class="culture-cards">
+            <div class="culture-card" data-aos="fade-up" data-aos-delay="100">
               <img
-                src="src\Screenshot 2025-04-24 201851.png"
-                alt="Truong Cao Dung"
-                loading="lazy"
-                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+1'; this.onerror=null;"
+                src="src\395149368_1357907631760971_5886543071450814731_n.jpg"
+                alt="Board Member"
               />
-              <h4>Truong Cao Dung</h4>
-              <p data-translate="executive_vp">Executive VP and Board Member</p>
-              <img
-                src="src\Screenshot 2025-04-24 202107.png"
-                alt="NEC Logo"
-                class="partner-logo"
-                onerror="this.src='https://via.placeholder.com/100x50?text=NEC+Logo'; this.onerror=null;"
-              />
-            </div>
-            <div class="partner-card">
-              <img
-                src="src\Screenshot 2025-04-24 200541.png"
-                alt="Weihan Wu"
-                loading="lazy"
-                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+2'; this.onerror=null;"
-              />
-              <h4>Weihan Wu</h4>
-              <p data-translate="developer_relations">
-                Developer Relations Manager
-              </p>
-              <img
-                src="src\Screenshot_2025-04-24_201014-removebg-preview.png"
-                alt="NVIDIA Logo"
-                class="partner-logo"
-                onerror="this.src='https://via.placeholder.com/100x50?text=NVIDIA+Logo'; this.onerror=null;"
-              />
-            </div>
-            <div class="partner-card">
-              <img
-                src="src\OIP.jpg"
-                alt="Dr. Andrew Ng"
-                loading="lazy"
-                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+3'; this.onerror=null;"
-              />
-              <h4>Dr. Andrew Ng</h4>
+              <h3 data-translate="board_member_1_name">Vu Dinh Duong</h3>
               <p data-translate="founder_ceo">Founder and CEO</p>
-              <img
-                src="src\Screenshot_2025-04-24_201336-removebg-preview.png"
-                alt="Landing AI Logo"
-                class="partner-logo"
-                onerror="this.src='https://via.placeholder.com/100x50?text=Landing+AI+Logo'; this.onerror=null;"
-              />
+              <div class="overlay">
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  aria-label="LinkedIn Profile"
+                >
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </div>
             </div>
-            <div class="partner-card">
+            <div class="culture-card" data-aos="fade-up" data-aos-delay="200">
               <img
-                src="src\original.jpg"
-                alt="Andreas Schick"
-                loading="lazy"
-                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+4'; this.onerror=null;"
+                src="src\332468737_582142267138020_2463351807716358545_n.jpg"
+                alt="Board Member"
               />
-              <h4>Andreas Schick</h4>
+              <h3 data-translate="board_member_2_name">Tran Thi B</h3>
               <p data-translate="coo">Chief Operating Officer</p>
-              <img
-                src="src\Screenshot_2025-04-24_201617-removebg-preview.png"
-                alt="Schaeffler Logo"
-                class="partner-logo"
-                onerror="this.src='https://via.placeholder.com/100x50?text=Schaeffler+Logo'; this.onerror=null;"
-              />
+              <div class="overlay">
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  aria-label="LinkedIn Profile"
+                >
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </div>
             </div>
-            <div class="partner-card">
+            <div class="culture-card" data-aos="fade-up" data-aos-delay="300">
               <img
-                src="src\OIP (1).jpg"
-                alt="Charles Williams"
-                loading="lazy"
-                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+5'; this.onerror=null;"
+                src="src\494362469_1335248247578803_803816207774017384_n.jpg"
+                alt="Board Member"
               />
-              <h4>Charles Williams</h4>
-              <p data-translate="product_owner">Product Owner</p>
-              <img
-                src="src\Screenshot_2025-04-24_203052-removebg-preview.png"
-                alt="Cognizant Logo"
-                class="partner-logo"
-                onerror="this.src='https://via.placeholder.com/100x50?text=Cognizant+Logo'; this.onerror=null;"
-              />
-            </div>
-            <div class="partner-card">
-              <img
-                src="src/partner6.jpg"
-                alt="Shusaku Hiraki"
-                loading="lazy"
-                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+6'; this.onerror=null;"
-              />
-              <h4>Shusaku Hiraki</h4>
-              <p data-translate="it_strategist">IT Strategist</p>
-              <img
-                src="src/mitsui-logo.png"
-                alt="Mitsui Logo"
-                class="partner-logo"
-                onerror="this.src='https://via.placeholder.com/100x50?text=Mitsui+Logo'; this.onerror=null;"
-              />
-            </div>
-          </div>
-          <button
-            class="carousel-btn next-btn"
-            onclick="scrollCarousel('partner-carousel', 1)"
-          >
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-      </div>
-    </section>
+              <h3 data-translate="board_member_3_name">Le Van C</h3>
+              <p data-translate="executive_vp">Executive VP and Board Member</p>
 
-    <!-- People & Culture -->
-    <section
-      id="people-culture"
-      class="section people-culture"
-      data-aos="fade-up"
-    >
-      <div class="container">
-        <h2 class="section-title" data-translate="people_culture_title">
-          Beyond An Employer
-        </h2>
-        <p class="section-subtitle" data-translate="people_culture_subtitle">
-          Building an inclusive, future-ready and happy workforce, while
-          allowing our team to thrive on challenging missions and benefit from
-          the latest technologies
-        </p>
-        <div class="culture-cards">
-          <div class="culture-card">
-            <img
-              src="src/culture1.webp"
-              alt="Thriving On Happiness"
-              loading="lazy"
-            />
-            <h3 data-translate="culture_happiness">Thriving On Happiness</h3>
-          </div>
-          <div class="culture-card">
-            <img
-              src="src/culture2.webp"
-              alt="Learning & Innovation"
-              loading="lazy"
-            />
-            <h3 data-translate="culture_learning">Learning & Innovation</h3>
-          </div>
-          <div class="culture-card">
-            <img
-              src="src/culture3.webp"
-              alt="Culture Of Celebration"
-              loading="lazy"
-            />
-            <h3 data-translate="culture_celebration">Culture Of Celebration</h3>
-          </div>
-          <div class="culture-card">
-            <img
-              src="src/culture4.webp"
-              alt="Diversity & Inclusion"
-              loading="lazy"
-            />
-            <h3 data-translate="culture_diversity">Diversity & Inclusion</h3>
+              <div class="overlay">
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  aria-label="LinkedIn Profile"
+                >
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+            <div class="culture-card" data-aos="fade-up" data-aos-delay="400">
+              <img
+                src="src\441016756_941615844109562_2959127322135339502_n.jpg"
+                alt="Board Member"
+              />
+              <h3 data-translate="board_member_4_name">Pham Thi D</h3>
+              <p data-translate="cfo">Chief Financial Officer</p>
+
+              <div class="overlay">
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  aria-label="LinkedIn Profile"
+                >
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+            <div class="culture-card" data-aos="fade-up" data-aos-delay="500">
+              <img
+                src="src\z6052814451997_389b85eb118f7c54d02dfc0b60c55de6.jpg"
+                alt="Board Member"
+              />
+              <h3 data-translate="board_member_5_name">Hoang Van E</h3>
+              <p data-translate="cto">Chief Technology Officer</p>
+              <div class="overlay">
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  aria-label="LinkedIn Profile"
+                >
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- In The News -->
-    <section
-      id="in-the-news"
-      class="section in-the-news scroll-section"
-      data-aos="fade-up"
-    >
-      <div class="container">
-        <h2 class="section-title" data-translate="in_the_news_title">
-          We Go The
-          <span class="highlight" data-translate="extra_mile">Extra Mile</span>
-        </h2>
-        <p class="section-subtitle" data-translate="in_the_news_subtitle">
-          To help you keep the world in motion<br />
-          Together, we Accompany the Future
-        </p>
-        <div class="news-carousel">
-          <div class="news-items">
-            <div class="news-item">
-              <div class="news-date">12 July 2024</div>
-              <h3 data-translate="news_1_title">
-                SSIT Officially Established – A Promising Start to a Journey of
-                Innovation
-              </h3>
-            </div>
-            <div class="news-item">
-              <div class="news-date">01 October 2024</div>
-              <h3 data-translate="news_2_title">
-                SSIT Launches Its First Product – An AI-Powered Exam Grading
-                Application
-              </h3>
-            </div>
-            <div class="news-item">
-              <div class="news-date">15 January 2025</div>
-              <h3 data-translate="news_3_title">
-                SSIT Successfully Pilots Pharmacy Management Project – A Major
-                Step Toward Real-World Deployment
-              </h3>
-            </div>
-          </div>
-          <button class="carousel-arrow left-arrow" aria-label="Previous News">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="carousel-arrow right-arrow" aria-label="Next News">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -701,53 +746,27 @@
     <nav class="subnav" data-aos="fade-up">
       <div class="subnav-content">
         <ul>
-          <li><a href="#overview" data-translate="overview">Overview</a></li>
           <li>
-            <a href="#success-stories" data-translate="success_stories_title"
-              >Success Stories</a
+            <a href="#company-intro" data-translate="overview">Overview</a>
+          </li>
+          <li>
+            <a href="#core-values" data-translate="core_values_title"
+              >Core Values</a
             >
           </li>
           <li>
-            <a
-              href="#services-industries"
-              data-translate="services_industries_title_short"
-              >Services & Industries</a
-            >
-          </li>
-          <li>
-            <a
-              href="#global-presence"
-              data-translate="global_presence_title_short"
-              >Global Presence</a
-            >
-          </li>
-          <li>
-            <a
-              href="#clients-partners"
-              data-translate="clients_partners_title_short"
-              >Clients & Partners</a
-            >
-          </li>
-          <li>
-            <a
-              href="#people-culture"
-              data-translate="people_culture_title_short"
-              >People & Culture</a
-            >
-          </li>
-          <li>
-            <a href="#in-the-news" data-translate="in_the_news_title_short"
-              >In The News</a
+            <a href="#board-directors" data-translate="board_directors_title"
+              >Board of Directors</a
             >
           </li>
         </ul>
       </div>
     </nav>
-
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-      AOS.init({ duration: 1000, once: true });
+      AOS.init({ duration: 800, easing: "ease-out", once: true });
+
       const hamburger = document.querySelector(".hamburger");
       const navMenu = document.querySelector(".nav-menu");
       hamburger.addEventListener("click", () => {
@@ -773,9 +792,10 @@
           careers: "Careers",
           contact: "Contact",
           search: "Search",
-          hero_title: "We Are A Comprehensive Technology Enabler",
-          hero_subtitle: "For Complex Business Challenges And Opportunities",
-          scroll_explore: "Scroll to Explore",
+          hero_text:
+            "Empowering the Future with Cutting-Edge Technology<br>Your Trusted Partner in IoT, AI, Blockchain, and Web Development<br>Driving Digital Transformation for a Sustainable Tomorrow",
+          discover_story: "Discover the SS IT Story",
+          watch_video: "Watch the video",
           success_stories_title: "Success Stories",
           success_stories_subtitle: "Transforming Businesses with Technology",
           story_digital_title: "Digital Transformation with SSIT",
@@ -816,6 +836,8 @@
           developer_relations: "Developer Relations Manager",
           founder_ceo: "Founder and CEO",
           coo: "Chief Operating Officer",
+          cfo: "Chief Financial Officer",
+          cto: "Chief Technology Officer",
           product_owner: "Product Owner",
           it_strategist: "IT Strategist",
           people_culture_title: "Beyond An Employer",
@@ -855,6 +877,48 @@
           clients_partners_title_short: "Clients & Partners",
           people_culture_title_short: "People & Culture",
           in_the_news_title_short: "In The News",
+          chatbot_title: "SS IT Chatbot",
+          chatbot_greeting:
+            "Hello! I am SS IT Vietnam's chatbot. How can I assist you today?",
+          chat_input_placeholder: "Type your message...",
+          company_intro_title: "About SS IT",
+          company_intro_subtitle:
+            "Empowering businesses with cutting-edge technology solutions",
+          company_intro_description:
+            "SS IT Joint Stock Company, founded in 2023, is a leading technology enabler based in Hanoi, Vietnam. We specialize in delivering innovative solutions in IoT, AI, blockchain, and web development to address complex business challenges. Our mission is to empower organizations worldwide with scalable, future-ready technologies, fostering digital transformation and sustainable growth. With a commitment to excellence and a client-centric approach, SS IT is your trusted partner in navigating the digital landscape.",
+          core_values_title: "Our Core Values",
+          core_values_subtitle:
+            "Guiding principles that define our culture and drive our success",
+          value_innovation: "Innovation",
+          value_innovation_description:
+            "We embrace creativity and cutting-edge technologies to deliver transformative solutions.",
+          value_integrity: "Integrity",
+          value_integrity_description:
+            "We uphold the highest standards of honesty and transparency in all our actions.",
+          value_collaboration: "Collaboration",
+          value_collaboration_description:
+            "We foster teamwork and partnerships to achieve shared goals and success.",
+          value_excellence: "Excellence",
+          value_excellence_description:
+            "We strive for outstanding quality and performance in everything we do.",
+          board_directors_title: "Board of Directors",
+          board_directors_subtitle:
+            "Meet the leaders driving SS IT’s vision and growth",
+          board_member_1_name: "Vu Dinh Duong",
+          board_member_1_bio:
+            "With over 15 years in tech innovation, Nguyen Van A founded SS IT to drive digital transformation globally.",
+          board_member_2_name: "Dao Van Doanh",
+          board_member_2_bio:
+            "Tran Thi B oversees operations, ensuring efficiency and scalability in SS IT’s global projects.",
+          board_member_3_name: "Bui An Du",
+          board_member_3_bio:
+            "Le Van C brings strategic insights, guiding SS IT’s growth in AI and blockchain solutions.",
+          board_member_4_name: "Le Quoc Hiep",
+          board_member_4_bio:
+            "Pham Thi D manages SS IT’s financial strategy, ensuring sustainable growth and fiscal responsibility.",
+          board_member_5_name: "Nguyen Hong Quan",
+          board_member_5_bio:
+            "Hoang Van E leads SS IT’s technology initiatives, focusing on innovation in AI and IoT solutions.",
         },
         vi: {
           title: "SS IT Việt Nam - Nhà cung cấp công nghệ toàn diện",
@@ -864,9 +928,10 @@
           careers: "Tuyển dụng",
           contact: "Liên hệ",
           search: "Tìm kiếm",
-          hero_title: "Chúng tôi là nhà cung cấp công nghệ toàn diện",
-          hero_subtitle: "Cho các thách thức và cơ hội kinh doanh phức tạp",
-          scroll_explore: "Cuộn để khám phá",
+          hero_text:
+            "Trao quyền cho tương lai với công nghệ tiên tiến<br>Đối tác đáng tin cậy của bạn trong IoT, AI, Blockchain và Phát triển Web<br>Thúc đẩy chuyển đổi số cho một ngày mai bền vững",
+          discover_story: "Khám phá câu chuyện SS IT",
+          watch_video: "Xem video",
           success_stories_title: "Câu chuyện thành công",
           success_stories_subtitle: "Chuyển đổi doanh nghiệp với công nghệ",
           story_digital_title: "Chuyển đổi số với SSIT",
@@ -910,6 +975,8 @@
           developer_relations: "Quản lý quan hệ phát triển",
           founder_ceo: "Nhà sáng lập và Giám đốc điều hành",
           coo: "Giám đốc vận hành",
+          cfo: "Giám đốc tài chính",
+          cto: "Giám đốc công nghệ",
           product_owner: "Chủ sở hữu sản phẩm",
           it_strategist: "Chiến lược gia CNTT",
           people_culture_title: "Hơn cả một nhà tuyển dụng",
@@ -949,6 +1016,48 @@
           clients_partners_title_short: "Khách hàng & Đối tác",
           people_culture_title_short: "Con người & Văn hóa",
           in_the_news_title_short: "Tin tức",
+          chatbot_title: "Chatbot SS IT",
+          chatbot_greeting:
+            "Xin chào! Tôi là chatbot của SS IT Việt Nam. Hôm nay tôi có thể giúp gì cho bạn?",
+          chat_input_placeholder: "Nhập tin nhắn của bạn...",
+          company_intro_title: "Về SS IT",
+          company_intro_subtitle:
+            "Trao quyền cho doanh nghiệp với các giải pháp công nghệ tiên tiến",
+          company_intro_description:
+            "Công ty Cổ phần SS IT, được thành lập vào năm 2023, là nhà cung cấp công nghệ hàng đầu có trụ sở tại Hà Nội, Việt Nam. Chúng tôi chuyên cung cấp các giải pháp sáng tạo trong IoT, AI, blockchain và phát triển web để giải quyết các thách thức kinh doanh phức tạp. Sứ mệnh của chúng tôi là trao quyền cho các tổ chức trên toàn thế giới với các công nghệ sẵn sàng cho tương lai, thúc đẩy chuyển đổi số và tăng trưởng bền vững. Với cam kết về sự xuất sắc và cách tiếp cận lấy khách hàng làm trung tâm, SS IT là đối tác đáng tin cậy của bạn trong việc định hình cảnh quan số.",
+          core_values_title: "Giá trị cốt lõi của chúng tôi",
+          core_values_subtitle:
+            "Nguyên tắc dẫn đường định hình văn hóa và thúc đẩy thành công của chúng tôi",
+          value_innovation: "Đổi mới",
+          value_innovation_description:
+            "Chúng tôi đón nhận sự sáng tạo và các công nghệ tiên tiến để mang lại các giải pháp chuyển đổi.",
+          value_integrity: "Chính trực",
+          value_integrity_description:
+            "Chúng tôi tuân thủ các tiêu chuẩn cao nhất về sự trung thực và minh bạch trong mọi hành động.",
+          value_collaboration: "Hợp tác",
+          value_collaboration_description:
+            "Chúng tôi thúc đẩy tinh thần đồng đội và quan hệ đối tác để đạt được các mục tiêu và thành công chung.",
+          value_excellence: "Xuất sắc",
+          value_excellence_description:
+            "Chúng tôi phấn đấu để đạt được chất lượng và hiệu suất vượt trội trong mọi việc chúng tôi làm.",
+          board_directors_title: "Hội đồng quản trị",
+          board_directors_subtitle:
+            "Gặp gỡ các nhà lãnh đạo thúc đẩy tầm nhìn và sự phát triển của SS IT",
+          board_member_1_name: "Vũ Đình Dương",
+          board_member_1_bio:
+            "Với hơn 15 năm kinh nghiệm trong đổi mới công nghệ, Nguyễn Văn A đã sáng lập SS IT để thúc đẩy chuyển đổi số trên toàn cầu.",
+          board_member_2_name: "Đào Văn Doanh",
+          board_member_2_bio:
+            "Trần Thị B giám sát hoạt động, đảm bảo hiệu quả và khả năng mở rộng trong các dự án toàn cầu của SS IT.",
+          board_member_3_name: "Bùi An Du ",
+          board_member_3_bio:
+            "Lê Văn C mang lại những hiểu biết chiến lược, dẫn dắt sự phát triển của SS IT trong các giải pháp AI và blockchain.",
+          board_member_4_name: "Lê Quốc Hiệp",
+          board_member_4_bio:
+            "Phạm Thị D quản lý chiến lược tài chính của SS IT, đảm bảo tăng trưởng bền vững và trách nhiệm tài chính.",
+          board_member_5_name: "Nguyễn Hồng Quân",
+          board_member_5_bio:
+            "Hoàng Văn E dẫn dắt các sáng kiến công nghệ của SS IT, tập trung vào đổi mới trong các giải pháp AI và IoT.",
         },
         zh: {
           title: "SS IT 越南 - 综合技术赋能者",
@@ -958,9 +1067,10 @@
           careers: "招聘",
           contact: "联系我们",
           search: "搜索",
-          hero_title: "我们是综合技术赋能者",
-          hero_subtitle: "应对复杂的商业挑战和机遇",
-          scroll_explore: "滚动探索",
+          hero_text:
+            "以尖端技术赋能未来<br>您在物联网、人工智能、区块链和网络开发中的可信伙伴<br>推动数字化转型，迈向可持续的明天",
+          discover_story: "发现 SS IT 故事",
+          watch_video: "观看视频",
           success_stories_title: "成功案例",
           success_stories_subtitle: "通过技术改变企业",
           story_digital_title: "与 SSIT 的数字化转型",
@@ -1001,6 +1111,8 @@
           developer_relations: "开发者关系经理",
           founder_ceo: "创始人兼首席执行官",
           coo: "首席运营官",
+          cfo: "首席财务官",
+          cto: "首席技术官",
           product_owner: "产品负责人",
           it_strategist: "IT 战略家",
           people_culture_title: "超越雇主",
@@ -1035,6 +1147,46 @@
           clients_partners_title_short: "客户与合作伙伴",
           people_culture_title_short: "人才与文化",
           in_the_news_title_short: "新闻动态",
+          chatbot_title: "SS IT 聊天机器人",
+          chatbot_greeting:
+            "您好！我是 SS IT 越南的聊天机器人。今天我能帮您什么？",
+          chat_input_placeholder: "输入您的消息...",
+          company_intro_title: "关于 SS IT",
+          company_intro_subtitle: "以尖端技术解决方案赋能企业",
+          company_intro_description:
+            "SS IT 股份有限公司成立于 2023 年，是一家总部位于越南河内的领先技术赋能者。我们专注于提供物联网、人工智能、区块链和网络开发的创新解决方案，以应对复杂的商业挑战。我们的使命是通过可扩展、面向未来的技术赋能全球组织，促进数字化转型和可持续增长。凭借对卓越的承诺和以客户为中心的方法，SS IT 是您在数字景观中导航的可靠伙伴。",
+          core_values_title: "我们的核心价值观",
+          core_values_subtitle: "定义我们文化并推动我们成功的指导原则",
+          value_innovation: "创新",
+          value_innovation_description:
+            "我们拥抱创造力和尖端技术，提供变革性的解决方案。",
+          value_integrity: "诚信",
+          value_integrity_description:
+            "我们在所有行动中坚持最高的诚实和透明标准。",
+          value_collaboration: "协作",
+          value_collaboration_description:
+            "我们促进团队合作和伙伴关系，以实现共同目标和成功。",
+          value_excellence: "卓越",
+          value_excellence_description:
+            "我们在所做的一切中追求卓越的质量和性能。",
+          board_directors_title: "董事会",
+          board_directors_subtitle: "认识推动 SS IT 愿景和增长的领导者",
+          board_member_1_name: "Vu Dinh Duong",
+          board_member_1_bio:
+            "Nguyen Van A 拥有超过 15 年的技术创新经验，创立 SS IT 以推动全球数字化转型。",
+          board_member_2_name: "Dao Van Doanh",
+
+          board_member_2_bio:
+            "Tran Thi B 负责监督运营，确保 SS IT 全球项目的高效性和可扩展性。",
+          board_member_3_name: "Bui An Du",
+          board_member_3_bio:
+            "Le Van C 带来战略洞察力，指导 SS IT 在人工智能和区块链解决方案方面的增长。",
+          board_member_4_name: "Le Quoc Hiep",
+          board_member_4_bio:
+            "Pham Thi D 管理 SS IT 的财务战略，确保可持续增长和财政责任。",
+          board_member_5_name: "Nguyen Hong Quan",
+          board_member_5_bio:
+            "Hoang Van E 领导 SS IT 的技术计划，专注于人工智能和物联网解决方案的创新。",
         },
         ja: {
           title: "SS IT ベトナム - 総合技術イネーブラー",
@@ -1044,9 +1196,10 @@
           careers: "採用情報",
           contact: "お問い合わせ",
           search: "検索",
-          hero_title: "私たちは総合技術イネーブラーです",
-          hero_subtitle: "複雑なビジネス課題と機会のために",
-          scroll_explore: "スクロールして探索",
+          hero_text:
+            "最先端技術で未来を強化<br>IoT、AI、ブロックチェーン、ウェブ開発における信頼できるパートナー<br>持続可能な明日へのデジタルトランスフォーメーションを推進",
+          discover_story: "SS IT ストーリーを発見",
+          watch_video: "ビデオを見る",
           success_stories_title: "成功事例",
           success_stories_subtitle: "テクノロジーでビジネスを変革",
           story_digital_title: "SSIT によるデジタルトランスフォーメーション",
@@ -1087,6 +1240,8 @@
           developer_relations: "開発者関係マネージャー",
           founder_ceo: "創業者兼CEO",
           coo: "最高執行責任者",
+          cfo: "最高財務責任者",
+          cto: "最高技術責任者",
           product_owner: "プロダクトオーナー",
           it_strategist: "IT戦略家",
           people_culture_title: "雇用主を超えて",
@@ -1123,6 +1278,46 @@
           clients_partners_title_short: "クライアント＆パートナー",
           people_culture_title_short: "人材＆文化",
           in_the_news_title_short: "ニュース",
+          chatbot_title: "SS IT チャットボット",
+          chatbot_greeting:
+            "こんにちは！私は SS IT ベトナムのチャットボットです。今日、どのようにお手伝いしましょうか？",
+          chat_input_placeholder: "メッセージを入力してください...",
+          company_intro_title: "SS IT について",
+          company_intro_subtitle: "最先端の技術ソリューションでビジネスを強化",
+          company_intro_description:
+            "SS IT 株式会社は、2023年に設立された、ベトナムのハノイに拠点を置くリーディングテクノロジーイネーブラーです。IoT、AI、ブロックチェーン、ウェブ開発における革新的なソリューションを提供し、複雑なビジネス課題に対応します。私たちの使命は、スケーラブルで未来志向の技術により、グローバルな組織を強化し、デジタルトランスフォーメーションと持続可能な成長を促進することです。卓越性へのコミットメントと顧客中心のアプローチにより、SS IT はデジタルランドスケープをナビゲートする信頼できるパートナーです。",
+          core_values_title: "私たちのコアバリュー",
+          core_values_subtitle: "私たちの文化を定義し、成功を推進する指導原則",
+          value_innovation: "イノベーション",
+          value_innovation_description:
+            "私たちは創造性と最先端技術を採用し、変革的なソリューションを提供します。",
+          value_integrity: "誠実さ",
+          value_integrity_description:
+            "私たちはすべての行動において最高の誠実さと透明性の基準を維持します。",
+          value_collaboration: "コラボレーション",
+          value_collaboration_description:
+            "私たちはチームワークとパートナーシップを促進し、共通の目標と成功を達成します。",
+          value_excellence: "卓越",
+          value_excellence_description:
+            "私たちはすべての行動において卓越した品質とパフォーマンスを目指します。",
+          board_directors_title: "取締役会",
+          board_directors_subtitle:
+            "SS IT のビジョンと成長を推進するリーダーたち",
+          board_member_1_name: "Vu Dinh Duong",
+          board_member_1_bio:
+            "Nguyen Van A は、15年以上の技術革新の経験を持ち、SS IT を設立し、グローバルなデジタルトランスフォーメーションを推進しています。",
+          board_member_2_name: "Dao Van Doanh",
+          board_member_2_bio:
+            "Tran Thi B は、SS IT のグローバルプロジェクトにおける効率性とスケーラビリティを確保し、運営を監督しています。",
+          board_member_3_name: "Bui An Du",
+          board_member_3_bio:
+            "Le Van C は、戦略的洞察をもたらし、AIおよびブロックチェーンソリューションにおける SS IT の成長を導いています。",
+          board_member_4_name: "Le Quoc Hiep",
+          board_member_4_bio:
+            "Pham Thi D は、SS IT の財務戦略を管理し、持続可能な成長と財政責任を確保しています。",
+          board_member_5_name: "Nguyen Hong Quan",
+          board_member_5_bio:
+            "Hoang Van E は、SS IT の技術イニシアチブをリードし、AIおよびIoTソリューションのイノベーションに焦点を当てています。",
         },
       };
 
@@ -1185,12 +1380,14 @@
         });
 
         // Update success stories tabs and current story
-        showStory(
-          document
-            .querySelector(".story-tabs .tab.active")
-            .getAttribute("onclick")
-            .match(/'([^']+)'/)[1]
-        );
+        const activeTab = document.querySelector(".story-tabs .tab.active");
+        if (activeTab) {
+          showStory(activeTab.getAttribute("onclick").match(/'([^']+)'/)[1]);
+        }
+
+        // Update chat input placeholder
+        const chatInput = document.getElementById("chatInput");
+        chatInput.placeholder = t["chat_input_placeholder"];
       };
 
       const languageSwitcher = document.getElementById("languageSwitcher");
@@ -1205,19 +1402,33 @@
       const savedLang = localStorage.getItem("lang") || "en";
       languageSwitcher.value = savedLang;
       updateLanguage(savedLang);
+
+      // Back to Top Button Logic
+      const backToTop = document.querySelector(".back-to-top");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
+        }
+      });
+
+      backToTop.addEventListener("click", (e) => {
+        e.preventDefault();
+        lenis.scrollTo(0, { duration: 1.5 });
+      });
     </script>
     <script>
       // Initialize Lenis for smooth scrolling
       const lenis = new Lenis({
-        duration: 1.2, // Adjust for smoother or faster scrolling
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Ease-in-out
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smooth: true,
-        smoothTouch: true, // Enable smooth scrolling on touch devices
-        wheelMultiplier: 0.8, // Adjust scroll sensitivity
-        touchMultiplier: 2, // Adjust touch sensitivity
+        smoothTouch: true,
+        wheelMultiplier: 0.8,
+        touchMultiplier: 2,
       });
 
-      // Animation frame for Lenis
       function raf(time) {
         lenis.raf(time);
         requestAnimationFrame(raf);
@@ -1235,7 +1446,7 @@
             lenis.scrollTo(targetSection, {
               duration: 1.5,
               easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-              offset: -50, // Adjust for header offset
+              offset: -50,
             });
           }
         });
@@ -1309,7 +1520,6 @@
       const chatInput = document.getElementById("chatInput");
       const sendMessage = document.getElementById("sendMessage");
 
-      // Hàm hiển thị typing indicator
       function showTypingIndicator() {
         const typingDiv = document.createElement("div");
         typingDiv.classList.add("typing-indicator");
@@ -1319,7 +1529,6 @@
         chatBody.scrollTop = chatBody.scrollHeight;
       }
 
-      // Hàm xóa typing indicator
       function removeTypingIndicator() {
         const typingIndicator = document.getElementById("typingIndicator");
         if (typingIndicator) {
@@ -1328,7 +1537,7 @@
       }
 
       async function sendMessageToGemini(message) {
-        const apiKey = "AIzaSyAXnQcv3OiRfZlA7dqxcpy_P42x08BkxuU"; // Thay bằng API key của mày
+        const apiKey = "AIzaSyAXnQcv3OiRfZlA7dqxcpy_P42x08BkxuU";
         const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
         const response = await fetch(url, {
@@ -1359,34 +1568,27 @@
         const message = chatInput.value.trim();
         if (!message) return;
 
-        // Hiển thị tin nhắn người dùng
         const userMessage = document.createElement("div");
         userMessage.classList.add("message", "user-message");
         userMessage.innerHTML = `<p>${message}</p>`;
         chatBody.appendChild(userMessage);
         chatBody.scrollTop = chatBody.scrollHeight;
 
-        // Xóa input
         chatInput.value = "";
 
-        // Hiển thị typing indicator
         showTypingIndicator();
 
-        // Gọi Gemini API
         try {
           const botResponse = await sendMessageToGemini(message);
 
-          // Xóa typing indicator
           removeTypingIndicator();
 
-          // Hiển thị phản hồi từ bot
           const botMessage = document.createElement("div");
           botMessage.classList.add("message", "bot-message");
           botMessage.innerHTML = `<p>${botResponse}</p>`;
           chatBody.appendChild(botMessage);
           chatBody.scrollTop = chatBody.scrollHeight;
         } catch (error) {
-          // Xóa typing indicator
           removeTypingIndicator();
 
           const lang = document.getElementById("languageSwitcher").value;
@@ -1401,20 +1603,11 @@
         }
       });
 
-      // Gửi tin nhắn khi nhấn Enter
       chatInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
           sendMessage.click();
         }
       });
-
-      // Cập nhật placeholder của input trong hàm updateLanguage
-      const originalUpdateLanguage = updateLanguage;
-      updateLanguage = (lang) => {
-        originalUpdateLanguage(lang);
-        const chatInput = document.getElementById("chatInput");
-        chatInput.placeholder = translations[lang]["chat_input_placeholder"];
-      };
     </script>
     <script>
       (function () {
@@ -1460,15 +1653,6 @@
             card.style.willChange = "auto";
           });
         });
-    </script>
-    <script>
-      AOS.init({
-        duration: 400,
-        easing: "ease-out",
-        once: true,
-        mirror: false,
-        throttleDelay: 50,
-      });
     </script>
   </body>
 </html>

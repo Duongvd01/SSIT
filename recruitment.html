@@ -1,227 +1,1473 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tuyển dụng - FPT Corporation</title>
+    <meta
+      name="description"
+      content="SS IT Joint Stock Company is a comprehensive technology enabler for complex business challenges and opportunities in IoT, AI, blockchain, and web development."
+    />
+    <meta
+      name="keywords"
+      content="SS IT, technology enabler, IoT, AI, blockchain, web development, Vietnam"
+    />
+    <meta name="robots" content="index, follow" />
+    <title data-translate="title">SS IT</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
     />
-    <style>
-      /* Additional styles specific to recruitment.html */
-      .job-card {
-        background: #fff;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        transition: transform 0.3s ease;
-        padding: 20px;
-        text-align: left;
-      }
-
-      .job-card h4 {
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: var(--primary-color);
-        margin-bottom: 10px;
-      }
-
-      .job-card p {
-        font-size: 0.95rem;
-        color: #666;
-        margin-bottom: 15px;
-      }
-
-      .job-card .job-details {
-        font-size: 0.9rem;
-        color: var(--text-color);
-        margin-bottom: 20px;
-      }
-
-      .job-card .job-details span {
-        display: block;
-        margin-bottom: 5px;
-      }
-
-      .job-card:hover {
-        transform: scale(1.03);
-      }
-
-      @media (max-width: 768px) {
-        .job-card {
-          padding: 15px;
-        }
-
-        .job-card h4 {
-          font-size: 1.2rem;
-        }
-
-        .job-card p {
-          font-size: 0.9rem;
-        }
-
-        .job-card .job-details {
-          font-size: 0.85rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .job-card {
-          padding: 10px;
-        }
-
-        .job-card h4 {
-          font-size: 1.1rem;
-        }
-
-        .job-card p {
-          font-size: 0.85rem;
-        }
-
-        .job-card .job-details {
-          font-size: 0.8rem;
-        }
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="icon" href="src\ssit-removebg-preview.ico" type="image/x-icon" />
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.28/dist/lenis.min.js"></script>
   </head>
   <body>
-    <!-- Header -->
-    <header class="header">
-      <nav class="navbar">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/7/71/FPT_Corporation_Logo.png"
-          alt="FPT Logo"
-          class="logo"
+    <!-- Chat Button -->
+    <a href="#chat" class="chat-btn" aria-label="Chat with us">
+      <i class="fas fa-comment"></i>
+    </a>
+
+    <!-- Chat Window -->
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">
+        <h3 data-translate="chatbot_title">SS IT Chatbot</h3>
+        <button class="close-chat" aria-label="Close chat">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="chat-body" id="chatBody">
+        <div class="message bot-message">
+          <p data-translate="chatbot_greeting">
+            Hello! I am SS IT Vietnam's chatbot. How can I assist you today?
+          </p>
+        </div>
+      </div>
+      <div class="chat-footer">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Type your message..."
+          data-translate-placeholder="chat_input_placeholder"
         />
-        <button class="hamburger"><i class="fas fa-bars"></i></button>
-        <div class="nav-menu">
-          <nav>
-            <ul>
-              <li><a href="index.html">Trang chủ</a></li>
-              <li><a href="introduction.html">Giới thiệu</a></li>
-              <li><a href="services.html">Dịch vụ</a></li>
-              <li><a href="industries.html">Ngành nghề</a></li>
-              <li><a href="recruitment.html">Tuyển dụng</a></li>
-              <li><a href="contact.html">Liên hệ</a></li>
-            </ul>
-          </nav>
-          <div class="header-actions">
-            <button class="search-btn">
-              <i class="fas fa-search"></i> Tìm kiếm
-            </button>
-            <div class="language-selector">
-              <i class="fas fa-globe"></i>
-              <select>
-                <option value="vi">日本語</option>
-                <option value="en">English</option>
-              </select>
-            </div>
+        <button id="sendMessage" aria-label="Send message">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Header -->
+    <header class="header" data-aos="fade-down">
+      <div class="navbar">
+        <a href="index.html">
+          <img
+            src="src\Screenshot_2025-04-24_204546-removebg-preview.png"
+            alt="SS IT Joint Stock Company Logo"
+            class="logo"
+          />
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav aria-label="Main navigation" class="nav-menu">
+          <ul>
+            <li>
+              <a href="about.html" data-translate="about">About</a>
+            </li>
+            <li>
+              <a href="services.html" data-translate="services">Services</a>
+            </li>
+            <li>
+              <a href="industries.html" data-translate="industries"
+                >Industries</a
+              >
+            </li>
+            <li><a href="careers.html" data-translate="careers">Careers</a></li>
+            <li><a href="contact.html" data-translate="contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="search-btn" aria-label="Search">
+            <i class="fas fa-search"></i>
+            <span data-translate="search">Search</span>
+          </button>
+          <div class="language-selector">
+            <i class="fas fa-globe"></i>
+            <select id="languageSwitcher">
+              <option value="en">EN</option>
+              <option value="vi">VI</option>
+              <option value="zh">中文</option>
+              <option value="ja">日本語</option>
+            </select>
           </div>
         </div>
-      </nav>
+      </div>
     </header>
 
-    <!-- Recruitment Section -->
-    <section class="section" id="recruitment">
-      <div class="section-bg-decor">
-        <img
-          src="https://images.unsplash.com/photo-1556740714-2e7c5e3a7a0b"
-          alt="Decorative Background"
+    <!-- Hero 1 (Video Background) -->
+    <section id="home" class="hero">
+      <div class="hero-bg-decor">
+        <video
           class="decor-image"
-        />
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="auto"
+          aria-label="Decorative Background Video"
+        >
+          <source src="src/30200-380473759.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="hero-content">
+        <h1 data-aos="fade-up" data-translate="hero_title">
+          We Are A Comprehensive Technology Enabler
+        </h1>
+        <p
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-translate="hero_subtitle"
+        >
+          For Complex Business Challenges And Opportunities
+        </p>
+        <a
+          href="#overview"
+          class="scroll-btn"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <i class="fas fa-chevron-down"></i>
+          <span data-translate="scroll_explore">Scroll to Explore</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section
+      id="success-stories"
+      class="section story-highlight"
+      data-aos="fade-up"
+    >
+      <div class="section-bg-decor">
+        <video
+          class="decor-image"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="auto"
+          aria-label="Success Stories Background Video"
+        >
+          <source src="src/215500.mp4" type="video/mp4" />
+          Your browser does not support the video tag. Please ensure the video
+          file exists and is in a supported format.
+        </video>
       </div>
       <div class="section-overlay"></div>
       <div class="container">
-        <h2 class="section-title">Tuyển dụng</h2>
-        <p class="section-subtitle">
-          Tham gia đội ngũ của chúng tôi và cùng tạo nên tương lai!
+        <h2 class="section-title" data-translate="success_stories_title">
+          Success Stories
+        </h2>
+        <p class="section-subtitle" data-translate="success_stories_subtitle">
+          Transforming Businesses with Technology
+        </p>
+        <div class="highlight-wrapper" id="highlight-content">
+          <div class="highlight-text">
+            <h3 id="story-title" data-translate="story_digital_title">
+              Digital Transformation with SSIT
+            </h3>
+            <p
+              id="story-description"
+              data-translate="story_digital_description"
+            >
+              A leading Vietnamese enterprise needed a robust HR and project
+              management system to streamline operations—handling employee data,
+              task assignments, and progress tracking. In just 3 months, SSIT
+              delivered a scalable web solution using React and Node.js,
+              enhancing productivity and operational efficiency.
+            </p>
+            <div class="highlight-actions">
+              <a href="#" class="btn primary" data-translate="read_more"
+                >Read More</a
+              >
+              <a href="#" class="btn secondary">
+                <i class="fas fa-download"></i>
+                <span data-translate="download_report">Download Report</span>
+              </a>
+            </div>
+          </div>
+          <div class="highlight-image">
+            <img
+              id="story-image"
+              src="src/1.png"
+              alt="SSIT Case Study"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="story-tabs">
+          <button
+            class="tab active"
+            onclick="showStory('digital')"
+            data-translate="story_digital_title"
+          >
+            Digital Transformation with SSIT
+          </button>
+          <button
+            class="tab"
+            onclick="showStory('chatbot')"
+            data-translate="story_chatbot_title"
+          >
+            AI-Powered Chatbot Integration
+          </button>
+          <button
+            class="tab"
+            onclick="showStory('cloud')"
+            data-translate="story_cloud_title"
+          >
+            Cloud Optimization Solutions
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services & Industries -->
+    <section
+      id="services-industries"
+      class="section services-industries full-screen-section"
+      data-aos="fade-up"
+    >
+      <div class="container">
+        <h2 class="section-title" data-translate="services_industries_title">
+          Harness Continuous Innovation & AI
+        </h2>
+        <p
+          class="section-subtitle"
+          data-translate="services_industries_subtitle"
+        >
+          In all of SSIT’s comprehensive services and solutions, AI is embedded
+          as an accelerator to enable new levels of performance for clients and
+          enhance efficiency in our own operations.
         </p>
         <div class="service-grid">
-          <div class="job-card">
-            <h4>Lập trình viên Full-Stack</h4>
-            <p>Phát triển các ứng dụng web hiện đại với công nghệ mới nhất.</p>
-            <div class="job-details">
-              <span><i class="fas fa-map-marker-alt"></i> Hà Nội</span>
-              <span><i class="fas fa-briefcase"></i> Toàn thời gian</span>
-              <span><i class="fas fa-dollar-sign"></i> 20-30 triệu VNĐ</span>
-            </div>
-            <a href="#" class="btn primary">Ứng tuyển ngay</a>
+          <div class="service-card">
+            <img
+              src="src\Screenshot 2025-04-23 164947.png"
+              alt="Data"
+              loading="lazy"
+              onerror="this.src='https://via.placeholder.com/300x400?text=Data'; this.onerror=null;"
+            />
+            <h4 data-translate="service_data">Data</h4>
           </div>
-          <div class="job-card">
-            <h4>Chuyên viên Phân tích Dữ liệu</h4>
-            <p>Phân tích dữ liệu để hỗ trợ ra quyết định chiến lược.</p>
-            <div class="job-details">
-              <span><i class="fas fa-map-marker-alt"></i> TP. Hồ Chí Minh</span>
-              <span><i class="fas fa-briefcase"></i> Toàn thời gian</span>
-              <span><i class="fas fa-dollar-sign"></i> 25-35 triệu VNĐ</span>
-            </div>
-            <a href="#" class="btn primary">Ứng tuyển ngay</a>
+          <div class="service-card">
+            <img
+              src="src\Screenshot 2025-04-23 165134.png"
+              alt="Artificial Intelligence"
+              loading="lazy"
+              onerror="this.src='https://via.placeholder.com/300x400?text=AI'; this.onerror=null;"
+            />
+            <h4 data-translate="service_ai">Artificial Intelligence</h4>
           </div>
-          <div class="job-card">
-            <h4>Nhân viên Kinh doanh</h4>
-            <p>Tìm kiếm và phát triển khách hàng trong lĩnh vực công nghệ.</p>
-            <div class="job-details">
-              <span><i class="fas fa-map-marker-alt"></i> Đà Nẵng</span>
-              <span><i class="fas fa-briefcase"></i> Toàn thời gian</span>
-              <span><i class="fas fa-dollar-sign"></i> 15-25 triệu VNĐ</span>
-            </div>
-            <a href="#" class="btn primary">Ứng tuyển ngay</a>
+          <div class="service-card">
+            <img
+              src="src\Screenshot 2025-04-23 165211.png"
+              alt="Low-Code"
+              loading="lazy"
+              onerror="this.src='https://via.placeholder.com/300x400?text=Low-Code'; this.onerror=null;"
+            />
+            <h4 data-translate="service_low_code">Low-Code</h4>
+          </div>
+          <div class="service-card">
+            <img
+              src="src\Screenshot 2025-04-23 165318.png"
+              alt="Hyper Automation"
+              loading="lazy"
+              onerror="this.src='https://via.placeholder.com/300x400?text=Hyper+Automation'; this.onerror=null;"
+            />
+            <h4 data-translate="service_hyper_automation">Hyper Automation</h4>
+          </div>
+          <div class="service-card">
+            <img
+              src="src\Screenshot 2025-04-23 165706.png"
+              alt="ERP Modernization"
+              loading="lazy"
+              onerror="this.src='https://via.placeholder.com/300x400?text=ERP+Modernization'; this.onerror=null;"
+            />
+            <h4 data-translate="service_erp_modernization">
+              ERP Modernization
+            </h4>
+          </div>
+          <div class="service-card">
+            <img
+              src="src\Screenshot 2025-04-23 165739.png"
+              alt="Digital Commerce & Experience"
+              loading="lazy"
+              onerror="this.src='https://via.placeholder.com/300x400?text=Digital+Commerce'; this.onerror=null;"
+            />
+            <h4 data-translate="service_digital_commerce">
+              Digital Commerce & Experience
+            </h4>
+          </div>
+          <div class="service-card">
+            <img
+              src="src\Screenshot 2025-04-23 165818.png"
+              alt="Legacy Modernization"
+              loading="lazy"
+              onerror="this.src='https://via.placeholder.com/300x400?text=Legacy+Modernization'; this.onerror=null;"
+            />
+            <h4 data-translate="service_legacy_modernization">
+              Legacy Modernization
+            </h4>
+          </div>
+          <div class="service-card">
+            <img
+              src="src\Screenshot 2025-04-23 165925.png"
+              alt="Global IT Services"
+              loading="lazy"
+              onerror="this.src='https://via.placeholder.com/300x400?text=Global+IT+Services'; this.onerror=null;"
+            />
+            <h4 data-translate="service_global_it">Global IT Services</h4>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Chat Button -->
-    <a href="#" class="chat-btn"><i class="fas fa-comment"></i></a>
+    <!-- Global Presence -->
+    <section
+      id="global-presence"
+      class="section global-presence scroll-section compact"
+      data-aos="fade-up"
+    >
+      <div class="section-bg-decor">
+        <video
+          class="decor-image"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="auto"
+          aria-label="Global Presence Background Video"
+        >
+          <source src="src/30200-380473759.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="section-overlay"></div>
+      <div class="container">
+        <h2 class="section-title" data-translate="global_presence_title">
+          Being There
+          <span class="highlight" data-translate="wherever">Wherever,</span
+          ><br />
+          <span class="highlight" data-translate="whenever">Whenever</span> You
+          Need Us
+        </h2>
+        <div class="global-stats-wrapper">
+          <div class="global-stats">
+            <div class="stat-card stat-card--top-left">
+              <h3>88</h3>
+              <p data-translate="branches_offices">
+                Branches & Representative offices
+              </p>
+            </div>
+            <div class="stat-card stat-card--top-right">
+              <h3>33,000+</h3>
+              <p data-translate="employees">Employees</p>
+            </div>
+            <div class="stat-card stat-card--bottom-left">
+              <h3>1,100+</h3>
+              <p data-translate="global_clients">Global Clients</p>
+            </div>
+            <div class="stat-card stat-card--bottom-right">
+              <h3>30</h3>
+              <p data-translate="countries_territories">
+                Countries & Territories
+              </p>
+            </div>
+          </div>
+          <div class="map-wrapper">
+            <img
+              src="src/Thiết kế chưa có tên.png"
+              alt="Our Global Reach"
+              class="world-map"
+              onerror="this.src='https://via.placeholder.com/800x400?text=World+Map'; this.onerror=null;"
+            />
+          </div>
+        </div>
+        <a
+          href="#"
+          class="btn primary explore-btn"
+          data-translate="explore_global_delivery"
+        >
+          Explore our Global Delivery Model <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+    <!-- Clients & Partners -->
+    <section
+      id="clients-partners"
+      class="section clients-partners full-screen-section"
+      data-aos="fade-up"
+    >
+      <div class="container">
+        <h2 class="section-title" data-translate="clients_partners_title">
+          Beyond A Partner
+        </h2>
+        <p class="section-subtitle" data-translate="clients_partners_subtitle">
+          Committed to bringing you speed to success, scalability, proven
+          quality of delivery, through a strong commitment to global compliance
+          standards.
+        </p>
+        <a
+          href="#"
+          class="btn primary explore-btn"
+          data-translate="explore_case_studies"
+        >
+          Explore our Case Studies <i class="fas fa-arrow-right"></i>
+        </a>
+        <div class="partner-carousel">
+          <button
+            class="carousel-btn prev-btn"
+            onclick="scrollCarousel('partner-carousel', -1)"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="partner-grid" id="partner-carousel">
+            <div class="partner-card">
+              <img
+                src="src\Screenshot 2025-04-24 201851.png"
+                alt="Truong Cao Dung"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+1'; this.onerror=null;"
+              />
+              <h4>Truong Cao Dung</h4>
+              <p data-translate="executive_vp">Executive VP and Board Member</p>
+              <img
+                src="src\Screenshot 2025-04-24 202107.png"
+                alt="NEC Logo"
+                class="partner-logo"
+                onerror="this.src='https://via.placeholder.com/100x50?text=NEC+Logo'; this.onerror=null;"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src="src\Screenshot 2025-04-24 200541.png"
+                alt="Weihan Wu"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+2'; this.onerror=null;"
+              />
+              <h4>Weihan Wu</h4>
+              <p data-translate="developer_relations">
+                Developer Relations Manager
+              </p>
+              <img
+                src="src\Screenshot_2025-04-24_201014-removebg-preview.png"
+                alt="NVIDIA Logo"
+                class="partner-logo"
+                onerror="this.src='https://via.placeholder.com/100x50?text=NVIDIA+Logo'; this.onerror=null;"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src="src\OIP.jpg"
+                alt="Dr. Andrew Ng"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+3'; this.onerror=null;"
+              />
+              <h4>Dr. Andrew Ng</h4>
+              <p data-translate="founder_ceo">Founder and CEO</p>
+              <img
+                src="src\Screenshot_2025-04-24_201336-removebg-preview.png"
+                alt="Landing AI Logo"
+                class="partner-logo"
+                onerror="this.src='https://via.placeholder.com/100x50?text=Landing+AI+Logo'; this.onerror=null;"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src="src\original.jpg"
+                alt="Andreas Schick"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+4'; this.onerror=null;"
+              />
+              <h4>Andreas Schick</h4>
+              <p data-translate="coo">Chief Operating Officer</p>
+              <img
+                src="src\Screenshot_2025-04-24_201617-removebg-preview.png"
+                alt="Schaeffler Logo"
+                class="partner-logo"
+                onerror="this.src='https://via.placeholder.com/100x50?text=Schaeffler+Logo'; this.onerror=null;"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src="src\OIP (1).jpg"
+                alt="Charles Williams"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+5'; this.onerror=null;"
+              />
+              <h4>Charles Williams</h4>
+              <p data-translate="product_owner">Product Owner</p>
+              <img
+                src="src\Screenshot_2025-04-24_203052-removebg-preview.png"
+                alt="Cognizant Logo"
+                class="partner-logo"
+                onerror="this.src='https://via.placeholder.com/100x50?text=Cognizant+Logo'; this.onerror=null;"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src="src/partner6.jpg"
+                alt="Shusaku Hiraki"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+6'; this.onerror=null;"
+              />
+              <h4>Shusaku Hiraki</h4>
+              <p data-translate="it_strategist">IT Strategist</p>
+              <img
+                src="src/mitsui-logo.png"
+                alt="Mitsui Logo"
+                class="partner-logo"
+                onerror="this.src='https://via.placeholder.com/100x50?text=Mitsui+Logo'; this.onerror=null;"
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-btn next-btn"
+            onclick="scrollCarousel('partner-carousel', 1)"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- People & Culture -->
+    <section
+      id="people-culture"
+      class="section people-culture"
+      data-aos="fade-up"
+    >
+      <div class="container">
+        <h2 class="section-title" data-translate="people_culture_title">
+          Beyond An Employer
+        </h2>
+        <p class="section-subtitle" data-translate="people_culture_subtitle">
+          Building an inclusive, future-ready and happy workforce, while
+          allowing our team to thrive on challenging missions and benefit from
+          the latest technologies
+        </p>
+        <div class="culture-cards">
+          <div class="culture-card">
+            <img
+              src="src/culture1.webp"
+              alt="Thriving On Happiness"
+              loading="lazy"
+            />
+            <h3 data-translate="culture_happiness">Thriving On Happiness</h3>
+          </div>
+          <div class="culture-card">
+            <img
+              src="src/culture2.webp"
+              alt="Learning & Innovation"
+              loading="lazy"
+            />
+            <h3 data-translate="culture_learning">Learning & Innovation</h3>
+          </div>
+          <div class="culture-card">
+            <img
+              src="src/culture3.webp"
+              alt="Culture Of Celebration"
+              loading="lazy"
+            />
+            <h3 data-translate="culture_celebration">Culture Of Celebration</h3>
+          </div>
+          <div class="culture-card">
+            <img
+              src="src/culture4.webp"
+              alt="Diversity & Inclusion"
+              loading="lazy"
+            />
+            <h3 data-translate="culture_diversity">Diversity & Inclusion</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- In The News -->
+    <section
+      id="in-the-news"
+      class="section in-the-news scroll-section"
+      data-aos="fade-up"
+    >
+      <div class="container">
+        <h2 class="section-title" data-translate="in_the_news_title">
+          We Go The
+          <span class="highlight" data-translate="extra_mile">Extra Mile</span>
+        </h2>
+        <p class="section-subtitle" data-translate="in_the_news_subtitle">
+          To help you keep the world in motion<br />
+          Together, we Accompany the Future
+        </p>
+        <div class="news-carousel">
+          <div class="news-items">
+            <div class="news-item">
+              <div class="news-date">12 July 2024</div>
+              <h3 data-translate="news_1_title">
+                SSIT Officially Established – A Promising Start to a Journey of
+                Innovation
+              </h3>
+            </div>
+            <div class="news-item">
+              <div class="news-date">01 October 2024</div>
+              <h3 data-translate="news_2_title">
+                SSIT Launches Its First Product – An AI-Powered Exam Grading
+                Application
+              </h3>
+            </div>
+            <div class="news-item">
+              <div class="news-date">15 January 2025</div>
+              <h3 data-translate="news_3_title">
+                SSIT Successfully Pilots Pharmacy Management Project – A Major
+                Step Toward Real-World Deployment
+              </h3>
+            </div>
+          </div>
+          <button class="carousel-arrow left-arrow" aria-label="Previous News">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-arrow right-arrow" aria-label="Next News">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-links">
-          <h3>Liên kết nhanh</h3>
-          <ul>
-            <li><a href="index.html">Trang chủ</a></li>
-            <li><a href="services.html">Dịch vụ</a></li>
-            <li><a href="industries.html">Ngành nghề</a></li>
-            <li><a href="recruitment.html">Tuyển dụng</a></li>
-            <li><a href="contact.html">Liên hệ</a></li>
-          </ul>
-        </div>
-        <div class="footer-info">
-          <h3>Thông tin</h3>
-          <p><strong>FPT Corporation</strong></p>
-          <p>Địa chỉ: Hà Nội, Việt Nam</p>
-          <p>Email: contact@fpt.com.vn</p>
-          <p>Hotline: 1900 1234</p>
-        </div>
-        <div class="footer-contact">
-          <a href="contact.html" class="contact-btn"
-            ><i class="fas fa-envelope"></i> Liên hệ ngay</a
-          >
-        </div>
-        <div class="footer-legal">
-          <a href="#">Chính sách bảo mật</a>
-          <a href="#">Điều khoản sử dụng</a>
-          <a href="#">Sitemap</a>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-links">
+            <h3 data-translate="footer_explore">Explore</h3>
+            <ul>
+              <li><a href="#overview" data-translate="about">About</a></li>
+              <li><a href="#careers" data-translate="careers">Careers</a></li>
+              <li>
+                <a href="#industries" data-translate="industries">Industries</a>
+              </li>
+              <li>
+                <a href="#services" data-translate="services">Services</a>
+              </li>
+              <li><a href="#content" data-translate="content">Content</a></li>
+            </ul>
+          </div>
+          <div class="footer-info">
+            <h3 data-translate="company_name">SS IT Joint Stock Company</h3>
+            <p data-translate="head_office">
+              <strong data-translate="head_office_label">Head Office:</strong>
+              4th Floor, No. 18, 18M Street, Mo Lao Ward, Ha Dong District,
+              Hanoi City, Vietnam
+            </p>
+            <p data-translate="tax_code">
+              <strong data-translate="tax_code_label">Tax Code:</strong>
+              0110781652
+            </p>
+            <p data-translate="hotline">
+              <strong data-translate="hotline_label">Hotline:</strong> (+84) 979
+              966 441
+            </p>
+          </div>
+          <div class="footer-contact">
+            <a href="#contact" class="btn primary contact-btn">
+              <i class="fas fa-envelope"></i>
+              <span data-translate="contact_us">Contact Us</span>
+            </a>
+          </div>
+          <div class="footer-legal">
+            <a href="#terms" data-translate="terms_of_use">Terms of Use</a>
+            <a href="#privacy" data-translate="privacy_statement"
+              >Privacy Statement</a
+            >
+            <a href="#vulnerability" data-translate="vulnerability_disclosure"
+              >Vulnerability Disclosure</a
+            >
+          </div>
         </div>
       </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- Subnav (Fixed Bottom) -->
+    <nav class="subnav" data-aos="fade-up">
+      <div class="subnav-content">
+        <ul>
+          <li><a href="#overview" data-translate="overview">Overview</a></li>
+          <li>
+            <a href="#success-stories" data-translate="success_stories_title"
+              >Success Stories</a
+            >
+          </li>
+          <li>
+            <a
+              href="#services-industries"
+              data-translate="services_industries_title_short"
+              >Services & Industries</a
+            >
+          </li>
+          <li>
+            <a
+              href="#global-presence"
+              data-translate="global_presence_title_short"
+              >Global Presence</a
+            >
+          </li>
+          <li>
+            <a
+              href="#clients-partners"
+              data-translate="clients_partners_title_short"
+              >Clients & Partners</a
+            >
+          </li>
+          <li>
+            <a
+              href="#people-culture"
+              data-translate="people_culture_title_short"
+              >People & Culture</a
+            >
+          </li>
+          <li>
+            <a href="#in-the-news" data-translate="in_the_news_title_short"
+              >In The News</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
+      AOS.init({ duration: 1000, once: true });
       const hamburger = document.querySelector(".hamburger");
       const navMenu = document.querySelector(".nav-menu");
-
       hamburger.addEventListener("click", () => {
         navMenu.classList.toggle("active");
+        hamburger.querySelector("i").classList.toggle("fa-bars");
+        hamburger.querySelector("i").classList.toggle("fa-times");
       });
-
       document.querySelectorAll(".nav-menu a").forEach((link) => {
         link.addEventListener("click", () => {
           navMenu.classList.remove("active");
+          hamburger.querySelector("i").classList.add("fa-bars");
+          hamburger.querySelector("i").classList.remove("fa-times");
         });
+      });
+
+      // Expanded translations object
+      const translations = {
+        en: {
+          title: "SS IT Vietnam - Technology Enabler",
+          about: "About",
+          services: "Services",
+          industries: "Industries",
+          careers: "Careers",
+          contact: "Contact",
+          search: "Search",
+          hero_title: "We Are A Comprehensive Technology Enabler",
+          hero_subtitle: "For Complex Business Challenges And Opportunities",
+          scroll_explore: "Scroll to Explore",
+          success_stories_title: "Success Stories",
+          success_stories_subtitle: "Transforming Businesses with Technology",
+          story_digital_title: "Digital Transformation with SSIT",
+          story_digital_description:
+            "A leading Vietnamese enterprise needed a robust HR and project management system to streamline operations—handling employee data, task assignments, and progress tracking. In just 3 months, SSIT delivered a scalable web solution using React and Node.js, enhancing productivity and operational efficiency.",
+          story_chatbot_title: "AI-Powered Chatbot Integration",
+          story_chatbot_description:
+            "A global e-commerce platform sought to improve customer support with an AI-powered chatbot. SSIT developed a custom solution using natural language processing and integrated it seamlessly, reducing response times by 40% and boosting customer satisfaction.",
+          story_cloud_title: "Cloud Optimization Solutions",
+          story_cloud_description:
+            "A financial services company faced challenges with high cloud costs and inefficient resource usage. SSIT implemented a cloud optimization strategy using AWS and Kubernetes, cutting costs by 30% and improving system scalability for future growth.",
+          read_more: "Read More",
+          download_report: "Download Report",
+          services_industries_title: "Harness Continuous Innovation & AI",
+          services_industries_subtitle:
+            "In all of SSIT’s comprehensive services and solutions, AI is embedded as an accelerator to enable new levels of performance for clients and enhance efficiency in our own operations.",
+          service_data: "Data",
+          service_ai: "Artificial Intelligence",
+          service_low_code: "Low-Code",
+          service_hyper_automation: "Hyper Automation",
+          service_erp_modernization: "ERP Modernization",
+          service_digital_commerce: "Digital Commerce & Experience",
+          service_legacy_modernization: "Legacy Modernization",
+          service_global_it: "Global IT Services",
+          global_presence_title: "Being There Wherever, Whenever You Need Us",
+          wherever: "Wherever",
+          whenever: "Whenever",
+          branches_offices: "Branches & Representative offices",
+          employees: "Employees",
+          global_clients: "Global Clients",
+          countries_territories: "Countries & Territories",
+          explore_global_delivery: "Explore our Global Delivery Model",
+          clients_partners_title: "Beyond A Partner",
+          clients_partners_subtitle:
+            "Committed to bringing you speed to success, scalability, proven quality of delivery, through a strong commitment to global compliance standards.",
+          explore_case_studies: "Explore our Case Studies",
+          executive_vp: "Executive VP and Board Member",
+          developer_relations: "Developer Relations Manager",
+          founder_ceo: "Founder and CEO",
+          coo: "Chief Operating Officer",
+          product_owner: "Product Owner",
+          it_strategist: "IT Strategist",
+          people_culture_title: "Beyond An Employer",
+          people_culture_subtitle:
+            "Building an inclusive, future-ready and happy workforce, while allowing our team to thrive on challenging missions and benefit from the latest technologies",
+          culture_happiness: "Thriving On Happiness",
+          culture_learning: "Learning & Innovation",
+          culture_celebration: "Culture Of Celebration",
+          culture_diversity: "Diversity & Inclusion",
+          in_the_news_title: "We Go The Extra Mile",
+          extra_mile: "Extra Mile",
+          in_the_news_subtitle:
+            "To help you keep the world in motion<br>Together, we Accompany the Future",
+          news_1_title:
+            "SSIT Officially Established – A Promising Start to a Journey of Innovation",
+          news_2_title:
+            "SSIT Launches Its First Product – An AI-Powered Exam Grading Application",
+          news_3_title:
+            "SSIT Successfully Pilots Pharmacy Management Project – A Major Step Toward Real-World Deployment",
+          footer_explore: "Explore",
+          company_name: "SS IT Joint Stock Company",
+          head_office:
+            "4th Floor, No. 18, 18M Street, Mo Lao Ward, Ha Dong District, Hanoi City, Vietnam",
+          head_office_label: "Head Office:",
+          tax_code: "Tax Code: 0110781652",
+          tax_code_label: "Tax Code:",
+          hotline: "Hotline: (+84) 979 966 441",
+          hotline_label: "Hotline:",
+          contact_us: "Contact Us",
+          terms_of_use: "Terms of Use",
+          privacy_statement: "Privacy Statement",
+          vulnerability_disclosure: "Vulnerability Disclosure",
+          content: "Content",
+          overview: "Overview",
+          services_industries_title_short: "Services & Industries",
+          global_presence_title_short: "Global Presence",
+          clients_partners_title_short: "Clients & Partners",
+          people_culture_title_short: "People & Culture",
+          in_the_news_title_short: "In The News",
+        },
+        vi: {
+          title: "SS IT Việt Nam - Nhà cung cấp công nghệ toàn diện",
+          about: "Giới thiệu",
+          services: "Dịch vụ",
+          industries: "Ngành nghề",
+          careers: "Tuyển dụng",
+          contact: "Liên hệ",
+          search: "Tìm kiếm",
+          hero_title: "Chúng tôi là nhà cung cấp công nghệ toàn diện",
+          hero_subtitle: "Cho các thách thức và cơ hội kinh doanh phức tạp",
+          scroll_explore: "Cuộn để khám phá",
+          success_stories_title: "Câu chuyện thành công",
+          success_stories_subtitle: "Chuyển đổi doanh nghiệp với công nghệ",
+          story_digital_title: "Chuyển đổi số với SSIT",
+          story_digital_description:
+            "Một doanh nghiệp hàng đầu Việt Nam cần một hệ thống quản lý nhân sự và dự án mạnh mẽ để đơn giản hóa hoạt động—xử lý dữ liệu nhân viên, phân công nhiệm vụ và theo dõi tiến độ. Trong vòng 3 tháng, SSIT đã cung cấp một giải pháp web có khả năng mở rộng bằng React và Node.js, nâng cao năng suất và hiệu quả vận hành.",
+          story_chatbot_title: "Tích hợp Chatbot sử dụng AI",
+          story_chatbot_description:
+            "Một nền tảng thương mại điện tử toàn cầu muốn cải thiện hỗ trợ khách hàng bằng chatbot sử dụng AI. SSIT đã phát triển một giải pháp tùy chỉnh sử dụng xử lý ngôn ngữ tự nhiên và tích hợp liền mạch, giảm thời gian phản hồi 40% và tăng sự hài lòng của khách hàng.",
+          story_cloud_title: "Giải pháp tối ưu hóa đám mây",
+          story_cloud_description:
+            "Một công ty dịch vụ tài chính đối mặt với chi phí đám mây cao và sử dụng tài nguyên không hiệu quả. SSIT đã triển khai chiến lược tối ưu hóa đám mây bằng AWS và Kubernetes, cắt giảm chi phí 30% và cải thiện khả năng mở rộng hệ thống cho tăng trưởng trong tương lai.",
+          read_more: "Đọc thêm",
+          download_report: "Tải báo cáo",
+          services_industries_title: "Khai thác đổi mới liên tục & AI",
+          services_industries_subtitle:
+            "Trong tất cả các dịch vụ và giải pháp toàn diện của SSIT, AI được tích hợp như một yếu tố thúc đẩy để nâng cao hiệu suất cho khách hàng và tăng hiệu quả trong hoạt động của chúng tôi.",
+          service_data: "Dữ liệu",
+          service_ai: "Trí tuệ nhân tạo",
+          service_low_code: "Mã thấp",
+          service_hyper_automation: "Tự động hóa cao cấp",
+          service_erp_modernization: "Hiện đại hóa ERP",
+          service_digital_commerce: "Thương mại & Trải nghiệm số",
+          service_legacy_modernization: "Hiện đại hóa hệ thống cũ",
+          service_global_it: "Dịch vụ CNTT toàn cầu",
+          global_presence_title: "Có mặt ở bất cứ đâu, bất cứ khi nào bạn cần",
+          wherever: "Bất cứ đâu",
+          whenever: "Bất cứ khi nào",
+          branches_offices: "Chi nhánh & Văn phòng đại diện",
+          employees: "Nhân viên",
+          global_clients: "Khách hàng toàn cầu",
+          countries_territories: "Quốc gia & Vùng lãnh thổ",
+          explore_global_delivery:
+            "Khám phá mô hình cung cấp toàn cầu của chúng tôi",
+          clients_partners_title: "Hơn cả một đối tác",
+          clients_partners_subtitle:
+            "Cam kết mang lại tốc độ thành công, khả năng mở rộng, chất lượng cung cấp đã được chứng minh thông qua cam kết mạnh mẽ với các tiêu chuẩn tuân thủ toàn cầu.",
+          explore_case_studies:
+            "Khám phá các nghiên cứu điển hình của chúng tôi",
+          executive_vp:
+            "Phó chủ tịch điều hành và Thành viên Hội đồng quản trị",
+          developer_relations: "Quản lý quan hệ phát triển",
+          founder_ceo: "Nhà sáng lập và Giám đốc điều hành",
+          coo: "Giám đốc vận hành",
+          product_owner: "Chủ sở hữu sản phẩm",
+          it_strategist: "Chiến lược gia CNTT",
+          people_culture_title: "Hơn cả một nhà tuyển dụng",
+          people_culture_subtitle:
+            "Xây dựng một lực lượng lao động hòa nhập, sẵn sàng cho tương lai và hạnh phúc, đồng thời cho phép đội ngũ của chúng tôi phát triển trong các nhiệm vụ thử thách và hưởng lợi từ các công nghệ mới nhất.",
+          culture_happiness: "Phát triển trên hạnh phúc",
+          culture_learning: "Học hỏi & Đổi mới",
+          culture_celebration: "Văn hóa lễ hội",
+          culture_diversity: "Đa dạng & Hòa nhập",
+          in_the_news_title: "Chúng tôi đi xa hơn",
+          extra_mile: "Xa hơn",
+          in_the_news_subtitle:
+            "Để giúp bạn giữ cho thế giới chuyển động<br>Cùng nhau, chúng ta đồng hành với tương lai",
+          news_1_title:
+            "SSIT chính thức thành lập – Khởi đầu đầy hứa hẹn cho hành trình đổi mới",
+          news_2_title:
+            "SSIT ra mắt sản phẩm đầu tiên – Ứng dụng chấm thi sử dụng AI",
+          news_3_title:
+            "SSIT thử nghiệm thành công dự án quản lý nhà thuốc – Bước tiến lớn hướng tới triển khai thực tế",
+          footer_explore: "Khám phá",
+          company_name: "Công ty Cổ phần SS IT",
+          head_office:
+            "Tầng 4, Số 18, Đường 18M, Phường Mộ Lao, Quận Hà Đông, Thành phố Hà Nội, Việt Nam",
+          head_office_label: "Trụ sở chính:",
+          tax_code: "Mã số thuế: 0110781652",
+          tax_code_label: "Mã số thuế:",
+          hotline: "Đường dây nóng: (+84) 979 966 441",
+          hotline_label: "Đường dây nóng:",
+          contact_us: "Liên hệ với chúng tôi",
+          terms_of_use: "Điều khoản sử dụng",
+          privacy_statement: "Tuyên bố bảo mật",
+          vulnerability_disclosure: "Công bố lỗ hổng",
+          content: "Nội dung",
+          overview: "Tổng quan",
+          services_industries_title_short: "Dịch vụ & Ngành nghề",
+          global_presence_title_short: "Hiện diện toàn cầu",
+          clients_partners_title_short: "Khách hàng & Đối tác",
+          people_culture_title_short: "Con người & Văn hóa",
+          in_the_news_title_short: "Tin tức",
+        },
+        zh: {
+          title: "SS IT 越南 - 综合技术赋能者",
+          about: "关于我们",
+          services: "服务",
+          industries: "行业",
+          careers: "招聘",
+          contact: "联系我们",
+          search: "搜索",
+          hero_title: "我们是综合技术赋能者",
+          hero_subtitle: "应对复杂的商业挑战和机遇",
+          scroll_explore: "滚动探索",
+          success_stories_title: "成功案例",
+          success_stories_subtitle: "通过技术改变企业",
+          story_digital_title: "与 SSIT 的数字化转型",
+          story_digital_description:
+            "一家领先的越南企业需要一个强大的 HR 和项目管理系统来简化运营——处理员工数据、任务分配和进度跟踪。在短短 3 个月内，SSIT 交付了一个使用 React 和 Node.js 的可扩展网络解决方案，提升了生产力和运营效率。",
+          story_chatbot_title: "人工智能驱动的聊天机器人集成",
+          story_chatbot_description:
+            "一家全球电子商务平台希望通过人工智能驱动的聊天机器人改善客户支持。SSIT 开发了一个使用自然语言处理的定制解决方案，并无缝集成，响应时间缩短了 40%，客户满意度显著提高。",
+          story_cloud_title: "云优化解决方案",
+          story_cloud_description:
+            "一家金融服务公司面临高昂的云成本和资源使用效率低下的挑战。SSIT 使用 AWS 和 Kubernetes 实施了云优化策略，将成本降低了 30%，并提高了系统未来增长的可扩展性。",
+          read_more: "阅读更多",
+          download_report: "下载报告",
+          services_industries_title: "利用持续创新与人工智能",
+          services_industries_subtitle:
+            "在 SSIT 的所有综合服务和解决方案中，人工智能被嵌入作为加速器，以实现客户的新性能水平并提高我们自身运营的效率。",
+          service_data: "数据",
+          service_ai: "人工智能",
+          service_low_code: "低代码",
+          service_hyper_automation: "超自动化",
+          service_erp_modernization: "ERP 现代化",
+          service_digital_commerce: "数字商务与体验",
+          service_legacy_modernization: "传统系统现代化",
+          service_global_it: "全球 IT 服务",
+          global_presence_title: "随时随地为您提供支持",
+          wherever: "无论何地",
+          whenever: "无论何时",
+          branches_offices: "分支机构与代表处",
+          employees: "员工",
+          global_clients: "全球客户",
+          countries_territories: "国家与地区",
+          explore_global_delivery: "探索我们的全球交付模式",
+          clients_partners_title: "超越合作伙伴",
+          clients_partners_subtitle:
+            "致力于为您带来成功速度、可扩展性、经过验证的交付质量，通过对全球合规标准的坚定承诺。",
+          explore_case_studies: "探索我们的案例研究",
+          executive_vp: "执行副总裁兼董事会成员",
+          developer_relations: "开发者关系经理",
+          founder_ceo: "创始人兼首席执行官",
+          coo: "首席运营官",
+          product_owner: "产品负责人",
+          it_strategist: "IT 战略家",
+          people_culture_title: "超越雇主",
+          people_culture_subtitle:
+            "打造一个包容、面向未来且快乐的劳动力队伍，同时让我们的团队在具有挑战性的任务中蓬勃发展，并从最新技术中受益。",
+          culture_happiness: "在幸福中成长",
+          culture_learning: "学习与创新",
+          culture_celebration: "庆祝文化",
+          culture_diversity: "多样性与包容性",
+          in_the_news_title: "我们走得更远",
+          extra_mile: "更远",
+          in_the_news_subtitle: "帮助您保持世界运转<br>我们共同陪伴未来",
+          news_1_title: "SSIT 正式成立 - 创新之旅的美好开端",
+          news_2_title: "SSIT 发布首款产品 - 人工智能驱动的考试评分应用",
+          news_3_title: "SSIT 成功试点药房管理项目 - 向现实部署迈出重要一步",
+          footer_explore: "探索",
+          company_name: "SS IT 股份有限公司",
+          head_office: "越南河内市河东区墓牢坊18M街18号4楼",
+          head_office_label: "总部：",
+          tax_code: "税号：0110781652",
+          tax_code_label: "税号：",
+          hotline: "热线：(+84) 979 966 441",
+          hotline_label: "热线：",
+          contact_us: "联系我们",
+          terms_of_use: "使用条款",
+          privacy_statement: "隐私声明",
+          vulnerability_disclosure: "漏洞披露",
+          content: "内容",
+          overview: "概览",
+          services_industries_title_short: "服务与行业",
+          global_presence_title_short: "全球布局",
+          clients_partners_title_short: "客户与合作伙伴",
+          people_culture_title_short: "人才与文化",
+          in_the_news_title_short: "新闻动态",
+        },
+        ja: {
+          title: "SS IT ベトナム - 総合技術イネーブラー",
+          about: "私たちについて",
+          services: "サービス",
+          industries: "業界",
+          careers: "採用情報",
+          contact: "お問い合わせ",
+          search: "検索",
+          hero_title: "私たちは総合技術イネーブラーです",
+          hero_subtitle: "複雑なビジネス課題と機会のために",
+          scroll_explore: "スクロールして探索",
+          success_stories_title: "成功事例",
+          success_stories_subtitle: "テクノロジーでビジネスを変革",
+          story_digital_title: "SSIT によるデジタルトランスフォーメーション",
+          story_digital_description:
+            "ベトナムの有力企業は、従業員データ、タスク割り当て、進捗追跡を処理する強固なHRおよびプロジェクト管理システムを必要としていました。わずか3か月で、SSITはReactとNode.jsを使用したスケーラブルなウェブソリューションを提供し、生産性と運用効率を向上させました。",
+          story_chatbot_title: "AI搭載チャットボットの統合",
+          story_chatbot_description:
+            "グローバルなeコマースプラットフォームは、AI搭載チャットボットでカスタマーサポートを改善しようとしていました。SSITは自然言語処理を使用したカスタムソリューションを開発し、シームレスに統合することで、応答時間を40％短縮し、顧客満足度を向上させました。",
+          story_cloud_title: "クラウド最適化ソリューション",
+          story_cloud_description:
+            "金融サービス企業は、高いクラウドコストと非効率なリソース使用に直面していました。SSITはAWSとKubernetesを使用したクラウド最適化戦略を導入し、コストを30％削減し、将来の成長に向けたシステムのスケーラビリティを改善しました。",
+          read_more: "もっと読む",
+          download_report: "レポートをダウンロード",
+          services_industries_title: "継続的なイノベーションとAIを活用",
+          services_industries_subtitle:
+            "SSITのすべての包括的なサービスとソリューションにおいて、AIはクライアントのパフォーマンスの新たなレベルを可能にし、当社の運用効率を高めるアクセラレーターとして組み込まれています。",
+          service_data: "データ",
+          service_ai: "人工知能",
+          service_low_code: "ローコード",
+          service_hyper_automation: "ハイパーオートメーション",
+          service_erp_modernization: "ERP近代化",
+          service_digital_commerce: "デジタルコマース＆エクスペリエンス",
+          service_legacy_modernization: "レガシー近代化",
+          service_global_it: "グローバルITサービス",
+          global_presence_title: "いつでも、どこでもあなたをサポート",
+          wherever: "どこでも",
+          whenever: "いつでも",
+          branches_offices: "支店＆代表事務所",
+          employees: "従業員",
+          global_clients: "グローバルクライアント",
+          countries_territories: "国＆地域",
+          explore_global_delivery: "グローバルデリバリーモデルを探索",
+          clients_partners_title: "パートナーを超えて",
+          clients_partners_subtitle:
+            "成功のスピード、スケーラビリティ、証明された配信品質を、グローバルなコンプライアンス基準への強いコミットメントを通じて提供することに尽力しています。",
+          explore_case_studies: "ケーススタディを探索",
+          executive_vp: "副社長兼取締役会メンバー",
+          developer_relations: "開発者関係マネージャー",
+          founder_ceo: "創業者兼CEO",
+          coo: "最高執行責任者",
+          product_owner: "プロダクトオーナー",
+          it_strategist: "IT戦略家",
+          people_culture_title: "雇用主を超えて",
+          people_culture_subtitle:
+            "包括的で未来志向の幸せな労働力を構築し、チームが挑戦的なミッションで成長し、最新のテクノロジーから利益を得られるようにします。",
+          culture_happiness: "幸福で成長",
+          culture_learning: "学習＆イノベーション",
+          culture_celebration: "祝賀の文化",
+          culture_diversity: "多様性＆インクルージョン",
+          in_the_news_title: "私たちはさらなる一歩を踏み出します",
+          extra_mile: "さらなる一歩",
+          in_the_news_subtitle: "世界を動かし続けるために<br>共に未来を歩む",
+          news_1_title: "SSIT正式設立 - イノベーションの旅の有望なスタート",
+          news_2_title: "SSIT初の製品発売 - AI搭載試験採点アプリケーション",
+          news_3_title:
+            "SSIT、薬局管理プロジェクトのパイロットに成功 - 実世界展開への大きな一歩",
+          footer_explore: "探索",
+          company_name: "SS IT株式会社",
+          head_office:
+            "ベトナム、ハノイ市、ハドン区、モラオ地区、18M通り18番地4階",
+          head_office_label: "本社：",
+          tax_code: "税コード：0110781652",
+          tax_code_label: "税コード：",
+          hotline: "ホットライン：(+84) 979 966 441",
+          hotline_label: "ホットライン：",
+          contact_us: "お問い合わせ",
+          terms_of_use: "利用規約",
+          privacy_statement: "プライバシー声明",
+          vulnerability_disclosure: "脆弱性開示",
+          content: "コンテンツ",
+          overview: "概要",
+          services_industries_title_short: "サービス＆業界",
+          global_presence_title_short: "グローバルプレゼンス",
+          clients_partners_title_short: "クライアント＆パートナー",
+          people_culture_title_short: "人材＆文化",
+          in_the_news_title_short: "ニュース",
+        },
+      };
+
+      // Tab switching logic for Success Stories
+      const stories = {
+        digital: {
+          title_key: "story_digital_title",
+          description_key: "story_digital_description",
+          image: "src/1.png",
+          alt: "SSIT Case Study",
+        },
+        chatbot: {
+          title_key: "story_chatbot_title",
+          description_key: "story_chatbot_description",
+          image: "src/2.png",
+          alt: "Chatbot Integration Case Study",
+        },
+        cloud: {
+          title_key: "story_cloud_title",
+          description_key: "story_cloud_description",
+          image: "src/3.png",
+          alt: "Cloud Optimization Case Study",
+        },
+      };
+
+      function showStory(storyKey) {
+        const story = stories[storyKey];
+        const lang = document.getElementById("languageSwitcher").value;
+        document.getElementById("story-title").textContent =
+          translations[lang][story.title_key];
+        document.getElementById("story-description").textContent =
+          translations[lang][story.description_key];
+        const storyImage = document.getElementById("story-image");
+        storyImage.src = story.image;
+        storyImage.alt = story.alt;
+
+        // Update active tab
+        document.querySelectorAll(".story-tabs .tab").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+        document
+          .querySelector(`.story-tabs .tab[onclick="showStory('${storyKey}')"]`)
+          .classList.add("active");
+
+        // Update tab text based on current language
+        document.querySelectorAll(".story-tabs .tab").forEach((tab) => {
+          const key = tab.getAttribute("data-translate");
+          tab.textContent = translations[lang][key];
+        });
+      }
+
+      // Update language function
+      const updateLanguage = (lang) => {
+        const t = translations[lang];
+        document.querySelectorAll("[data-translate]").forEach((element) => {
+          const key = element.getAttribute("data-translate");
+          if (t[key]) {
+            element.innerHTML = t[key].replace(/<br>/g, "<br>"); // Preserve <br> tags
+          }
+        });
+
+        // Update success stories tabs and current story
+        showStory(
+          document
+            .querySelector(".story-tabs .tab.active")
+            .getAttribute("onclick")
+            .match(/'([^']+)'/)[1]
+        );
+      };
+
+      const languageSwitcher = document.getElementById("languageSwitcher");
+
+      languageSwitcher.addEventListener("change", (e) => {
+        const lang = e.target.value;
+        updateLanguage(lang);
+        localStorage.setItem("lang", lang); // Save selected language
+      });
+
+      // Initialize with saved language
+      const savedLang = localStorage.getItem("lang") || "en";
+      languageSwitcher.value = savedLang;
+      updateLanguage(savedLang);
+    </script>
+    <script>
+      // Initialize Lenis for smooth scrolling
+      const lenis = new Lenis({
+        duration: 1.2, // Adjust for smoother or faster scrolling
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Ease-in-out
+        smooth: true,
+        smoothTouch: true, // Enable smooth scrolling on touch devices
+        wheelMultiplier: 0.8, // Adjust scroll sensitivity
+        touchMultiplier: 2, // Adjust touch sensitivity
+      });
+
+      // Animation frame for Lenis
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+
+      // Sync Lenis with subnav link clicks
+      document.querySelectorAll(".subnav a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            lenis.scrollTo(targetSection, {
+              duration: 1.5,
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+              offset: -50, // Adjust for header offset
+            });
+          }
+        });
+      });
+
+      // Pause/resume video playback based on visibility
+      const videos = document.querySelectorAll("video");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.play();
+            } else {
+              entry.target.pause();
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      videos.forEach((video) => observer.observe(video));
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'934a2267cdd37b96',t:'MTc0NTM3NzQ3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+      // Chat Window Toggle
+      const chatBtn = document.querySelector(".chat-btn");
+      const chatWindow = document.getElementById("chatWindow");
+      const closeChat = document.querySelector(".close-chat");
+
+      chatBtn.addEventListener("click", () => {
+        chatWindow.classList.toggle("active");
+      });
+
+      closeChat.addEventListener("click", () => {
+        chatWindow.classList.remove("active");
+      });
+
+      // Gemini API Integration
+      const chatBody = document.getElementById("chatBody");
+      const chatInput = document.getElementById("chatInput");
+      const sendMessage = document.getElementById("sendMessage");
+
+      // Hàm hiển thị typing indicator
+      function showTypingIndicator() {
+        const typingDiv = document.createElement("div");
+        typingDiv.classList.add("typing-indicator");
+        typingDiv.innerHTML = `<span></span><span></span><span></span>`;
+        typingDiv.id = "typingIndicator";
+        chatBody.appendChild(typingDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+
+      // Hàm xóa typing indicator
+      function removeTypingIndicator() {
+        const typingIndicator = document.getElementById("typingIndicator");
+        if (typingIndicator) {
+          typingIndicator.remove();
+        }
+      }
+
+      async function sendMessageToGemini(message) {
+        const apiKey = "AIzaSyAXnQcv3OiRfZlA7dqxcpy_P42x08BkxuU"; // Thay bằng API key của mày
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [
+                  {
+                    text:
+                      "Bạn là chatbot của SS IT Việt Nam, trả lời chuyên nghiệp và thân thiện. Câu hỏi: " +
+                      message,
+                  },
+                ],
+              },
+            ],
+          }),
+        });
+
+        const data = await response.json();
+        return data.candidates[0].content.parts[0].text;
+      }
+
+      sendMessage.addEventListener("click", async () => {
+        const message = chatInput.value.trim();
+        if (!message) return;
+
+        // Hiển thị tin nhắn người dùng
+        const userMessage = document.createElement("div");
+        userMessage.classList.add("message", "user-message");
+        userMessage.innerHTML = `<p>${message}</p>`;
+        chatBody.appendChild(userMessage);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Xóa input
+        chatInput.value = "";
+
+        // Hiển thị typing indicator
+        showTypingIndicator();
+
+        // Gọi Gemini API
+        try {
+          const botResponse = await sendMessageToGemini(message);
+
+          // Xóa typing indicator
+          removeTypingIndicator();
+
+          // Hiển thị phản hồi từ bot
+          const botMessage = document.createElement("div");
+          botMessage.classList.add("message", "bot-message");
+          botMessage.innerHTML = `<p>${botResponse}</p>`;
+          chatBody.appendChild(botMessage);
+          chatBody.scrollTop = chatBody.scrollHeight;
+        } catch (error) {
+          // Xóa typing indicator
+          removeTypingIndicator();
+
+          const lang = document.getElementById("languageSwitcher").value;
+          const errorMessage = document.createElement("div");
+          errorMessage.classList.add("message", "bot-message");
+          const errorText =
+            translations[lang]["chat_error"] ||
+            "Error: Could not connect to API. Please try again later.";
+          errorMessage.innerHTML = `<p>${errorText}</p>`;
+          chatBody.appendChild(errorMessage);
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }
+      });
+
+      // Gửi tin nhắn khi nhấn Enter
+      chatInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          sendMessage.click();
+        }
+      });
+
+      // Cập nhật placeholder của input trong hàm updateLanguage
+      const originalUpdateLanguage = updateLanguage;
+      updateLanguage = (lang) => {
+        originalUpdateLanguage(lang);
+        const chatInput = document.getElementById("chatInput");
+        chatInput.placeholder = translations[lang]["chat_input_placeholder"];
+      };
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'935568051942bcce',t:'MTc0NTQ5NTY3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+      document
+        .querySelectorAll(".service-card, .partner-card")
+        .forEach((card) => {
+          card.addEventListener("mouseenter", () => {
+            card.style.willChange = "transform";
+          });
+          card.addEventListener("mouseleave", () => {
+            card.style.willChange = "auto";
+          });
+        });
+    </script>
+    <script>
+      AOS.init({
+        duration: 400,
+        easing: "ease-out",
+        once: true,
+        mirror: false,
+        throttleDelay: 50,
       });
     </script>
   </body>
