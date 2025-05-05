@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="SS IT Joint Stock Company is a comprehensive technology enabler for complex business challenges and opportunities in IoT, AI, blockchain, and web development."
+      content="SS IT Joint Stock Company delivers cutting-edge technology solutions in AI, IoT, blockchain, and web development."
     />
     <meta
       name="keywords"
-      content="SS IT, technology enabler, IoT, AI, blockchain, web development, Vietnam"
+      content="SS IT, tech startup, AI, IoT, blockchain, web development, Vietnam"
     />
     <meta name="robots" content="index, follow" />
     <title data-translate="title">SS IT</title>
@@ -58,6 +58,7 @@
         </button>
       </div>
     </div>
+
     <!-- Header -->
     <header class="header" data-aos="fade-down">
       <div class="navbar">
@@ -106,541 +107,158 @@
       </div>
     </header>
 
-    <!-- Hero 1 (Video Background) -->
-    <section id="home" class="hero">
-      <div class="hero-bg-decor">
-        <video
-          class="decor-image"
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="auto"
-          aria-label="Decorative Background Video"
-        >
-          <source src="src/30200-380473759.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="hero-content">
-        <h1 data-aos="fade-up" data-translate="hero_title">
-          We Are A Comprehensive Technology Enabler
+    <!-- Services Hero Section -->
+    <section class="services-hero" data-aos="fade-up">
+      <div class="container">
+        <h1 data-translate="services_title">
+          Transform Your Business with Cutting-Edge Technology
         </h1>
-        <p
-          data-aos="fade-up"
-          data-aos-delay="200"
-          data-translate="hero_subtitle"
-        >
-          For Complex Business Challenges And Opportunities
+        <p data-translate="services_subtitle">
+          Partner with SS IT to harness AI, IoT, blockchain, and bespoke web
+          solutions for unparalleled success.
         </p>
         <a
-          href="#overview"
-          class="scroll-btn"
-          data-aos="fade-up"
-          data-aos-delay="400"
+          href="#services-list"
+          class="btn primary"
+          data-translate="explore_services"
+          >Discover Our Expertise</a
         >
-          <i class="fas fa-chevron-down"></i>
-          <span data-translate="scroll_explore">Scroll to Explore</span>
-        </a>
       </div>
     </section>
 
-    <!-- Success Stories -->
-    <section
-      id="success-stories"
-      class="section story-highlight"
-      data-aos="fade-up"
-    >
-      <div class="section-bg-decor">
-        <video
-          class="decor-image"
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="auto"
-          aria-label="Success Stories Background Video"
-        >
-          <source src="src/215500.mp4" type="video/mp4" />
-          Your browser does not support the video tag. Please ensure the video
-          file exists and is in a supported format.
-        </video>
-      </div>
-      <div class="section-overlay"></div>
+    <!-- Services List Section -->
+    <section class="services-list" data-aos="fade-up">
       <div class="container">
-        <h2 class="section-title" data-translate="success_stories_title">
-          Success Stories
-        </h2>
-        <p class="section-subtitle" data-translate="success_stories_subtitle">
-          Transforming Businesses with Technology
-        </p>
-        <div class="highlight-wrapper" id="highlight-content">
-          <div class="highlight-text">
-            <h3 id="story-title" data-translate="story_digital_title">
-              Digital Transformation with SSIT
-            </h3>
-            <p
-              id="story-description"
-              data-translate="story_digital_description"
-            >
-              A leading Vietnamese enterprise needed a robust HR and project
-              management system to streamline operations—handling employee data,
-              task assignments, and progress tracking. In just 3 months, SSIT
-              delivered a scalable web solution using React and Node.js,
-              enhancing productivity and operational efficiency.
+        <h2 data-translate="our_services">Our Specialized Services</h2>
+        <div class="services-grid">
+          <div class="service-card" data-aos="zoom-in">
+            <i class="fas fa-robot"></i>
+            <h3 data-translate="service_ai">Artificial Intelligence</h3>
+            <p data-translate="service_ai_desc">
+              Develop intelligent systems with machine learning, NLP, and deep
+              learning to automate processes and drive insights.
             </p>
-            <div class="highlight-actions">
-              <a href="#" class="btn primary" data-translate="read_more"
-                >Read More</a
-              >
-              <a href="#" class="btn secondary">
-                <i class="fas fa-download"></i>
-                <span data-translate="download_report">Download Report</span>
-              </a>
-            </div>
+            <p class="tech-stack" data-translate="service_ai_tech">
+              Technologies: TensorFlow, PyTorch, OpenAI, AWS SageMaker
+            </p>
+            <a href="#contact" class="btn secondary" data-translate="learn_more"
+              >Learn More</a
+            >
           </div>
-          <div class="highlight-image">
-            <img
-              id="story-image"
-              src="src/1.png"
-              alt="SSIT Case Study"
-              loading="lazy"
-            />
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fas fa-network-wired"></i>
+            <h3 data-translate="service_iot">Internet of Things (IoT)</h3>
+            <p data-translate="service_iot_desc">
+              Build connected ecosystems for smart industries, optimizing
+              operations with real-time data and analytics.
+            </p>
+            <p class="tech-stack" data-translate="service_iot_tech">
+              Technologies: AWS IoT, Azure IoT, MQTT, Raspberry Pi
+            </p>
+            <a href="#contact" class="btn secondary" data-translate="learn_more"
+              >Learn More</a
+            >
           </div>
-        </div>
-        <div class="story-tabs">
-          <button
-            class="tab active"
-            onclick="showStory('digital')"
-            data-translate="story_digital_title"
-          >
-            Digital Transformation with SSIT
-          </button>
-          <button
-            class="tab"
-            onclick="showStory('chatbot')"
-            data-translate="story_chatbot_title"
-          >
-            AI-Powered Chatbot Integration
-          </button>
-          <button
-            class="tab"
-            onclick="showStory('cloud')"
-            data-translate="story_cloud_title"
-          >
-            Cloud Optimization Solutions
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services & Industries -->
-    <section
-      id="services-industries"
-      class="section services-industries full-screen-section"
-      data-aos="fade-up"
-    >
-      <div class="container">
-        <h2 class="section-title" data-translate="services_industries_title">
-          Harness Continuous Innovation & AI
-        </h2>
-        <p
-          class="section-subtitle"
-          data-translate="services_industries_subtitle"
-        >
-          In all of SSIT’s comprehensive services and solutions, AI is embedded
-          as an accelerator to enable new levels of performance for clients and
-          enhance efficiency in our own operations.
-        </p>
-        <div class="service-grid">
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 164947.png"
-              alt="Data"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=Data'; this.onerror=null;"
-            />
-            <h4 data-translate="service_data">Data</h4>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fas fa-link"></i>
+            <h3 data-translate="service_blockchain">Blockchain Development</h3>
+            <p data-translate="service_blockchain_desc">
+              Create secure, decentralized applications for finance, supply
+              chain, and data integrity.
+            </p>
+            <p class="tech-stack" data-translate="service_blockchain_tech">
+              Technologies: Ethereum, Hyperledger, Solidity, Truffle
+            </p>
+            <a href="#contact" class="btn secondary" data-translate="learn_more"
+              >Learn More</a
+            >
           </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165134.png"
-              alt="Artificial Intelligence"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=AI'; this.onerror=null;"
-            />
-            <h4 data-translate="service_ai">Artificial Intelligence</h4>
-          </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165211.png"
-              alt="Low-Code"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=Low-Code'; this.onerror=null;"
-            />
-            <h4 data-translate="service_low_code">Low-Code</h4>
-          </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165318.png"
-              alt="Hyper Automation"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=Hyper+Automation'; this.onerror=null;"
-            />
-            <h4 data-translate="service_hyper_automation">Hyper Automation</h4>
-          </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165706.png"
-              alt="ERP Modernization"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=ERP+Modernization'; this.onerror=null;"
-            />
-            <h4 data-translate="service_erp_modernization">
-              ERP Modernization
-            </h4>
-          </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165739.png"
-              alt="Digital Commerce & Experience"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=Digital+Commerce'; this.onerror=null;"
-            />
-            <h4 data-translate="service_digital_commerce">
-              Digital Commerce & Experience
-            </h4>
-          </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165818.png"
-              alt="Legacy Modernization"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=Legacy+Modernization'; this.onerror=null;"
-            />
-            <h4 data-translate="service_legacy_modernization">
-              Legacy Modernization
-            </h4>
-          </div>
-          <div class="service-card">
-            <img
-              src="src\Screenshot 2025-04-23 165925.png"
-              alt="Global IT Services"
-              loading="lazy"
-              onerror="this.src='https://via.placeholder.com/300x400?text=Global+IT+Services'; this.onerror=null;"
-            />
-            <h4 data-translate="service_global_it">Global IT Services</h4>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+            <i class="fas fa-code"></i>
+            <h3 data-translate="service_web">Web Development</h3>
+            <p data-translate="service_web_desc">
+              Craft scalable, user-centric web applications tailored to your
+              business goals.
+            </p>
+            <p class="tech-stack" data-translate="service_web_tech">
+              Technologies: React, Node.js, Next.js, MongoDB
+            </p>
+            <a href="#contact" class="btn secondary" data-translate="learn_more"
+              >Learn More</a
+            >
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Global Presence -->
-    <section
-      id="global-presence"
-      class="section global-presence scroll-section compact"
-      data-aos="fade-up"
-    >
-      <div class="section-bg-decor">
-        <video
-          class="decor-image"
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="auto"
-          aria-label="Global Presence Background Video"
-        >
-          <source src="src/30200-380473759.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="section-overlay"></div>
+    <!-- Case Studies Section -->
+    <section class="services-cases" data-aos="fade-up">
       <div class="container">
-        <h2 class="section-title" data-translate="global_presence_title">
-          Being There
-          <span class="highlight" data-translate="wherever">Wherever,</span
-          ><br />
-          <span class="highlight" data-translate="whenever">Whenever</span> You
-          Need Us
-        </h2>
-        <div class="global-stats-wrapper">
-          <div class="global-stats">
-            <div class="stat-card stat-card--top-left">
-              <h3>88</h3>
-              <p data-translate="branches_offices">
-                Branches & Representative offices
-              </p>
-            </div>
-            <div class="stat-card stat-card--top-right">
-              <h3>33,000+</h3>
-              <p data-translate="employees">Employees</p>
-            </div>
-            <div class="stat-card stat-card--bottom-left">
-              <h3>1,100+</h3>
-              <p data-translate="global_clients">Global Clients</p>
-            </div>
-            <div class="stat-card stat-card--bottom-right">
-              <h3>30</h3>
-              <p data-translate="countries_territories">
-                Countries & Territories
-              </p>
-            </div>
+        <h2 data-translate="case_studies_title">Proven Success Stories</h2>
+        <div class="cases-grid">
+          <div class="case-card" data-aos="fade-right">
+            <h3 data-translate="case_study_1_title">
+              AI-Powered Retail Analytics
+            </h3>
+            <p data-translate="case_study_1_desc">
+              Developed an AI-driven analytics platform for a retail chain,
+              increasing sales by 25% through predictive inventory management.
+            </p>
+            <a href="#contact" class="btn secondary" data-translate="read_case"
+              >Read Case Study</a
+            >
           </div>
-          <div class="map-wrapper">
-            <img
-              src="src/Thiết kế chưa có tên.png"
-              alt="Our Global Reach"
-              class="world-map"
-              onerror="this.src='https://via.placeholder.com/800x400?text=World+Map'; this.onerror=null;"
-            />
+          <div class="case-card" data-aos="fade-right" data-aos-delay="100">
+            <h3 data-translate="case_study_2_title">IoT Smart Factory</h3>
+            <p data-translate="case_study_2_desc">
+              Implemented an IoT solution for a manufacturing plant, reducing
+              downtime by 30% with real-time monitoring.
+            </p>
+            <a href="#contact" class="btn secondary" data-translate="read_case"
+              >Read Case Study</a
+            >
           </div>
-        </div>
-        <a
-          href="#"
-          class="btn primary explore-btn"
-          data-translate="explore_global_delivery"
-        >
-          Explore our Global Delivery Model <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-    </section>
-    <!-- Clients & Partners -->
-    <section
-      id="clients-partners"
-      class="section clients-partners full-screen-section"
-      data-aos="fade-up"
-    >
-      <div class="container">
-        <h2 class="section-title" data-translate="clients_partners_title">
-          Beyond A Partner
-        </h2>
-        <p class="section-subtitle" data-translate="clients_partners_subtitle">
-          Committed to bringing you speed to success, scalability, proven
-          quality of delivery, through a strong commitment to global compliance
-          standards.
-        </p>
-        <a
-          href="#"
-          class="btn primary explore-btn"
-          data-translate="explore_case_studies"
-        >
-          Explore our Case Studies <i class="fas fa-arrow-right"></i>
-        </a>
-        <div class="partner-carousel">
-          <button
-            class="carousel-btn prev-btn"
-            onclick="scrollCarousel('partner-carousel', -1)"
-          >
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <div class="partner-grid" id="partner-carousel">
-            <div class="partner-card">
-              <img
-                src="src\Screenshot 2025-04-24 201851.png"
-                alt="Truong Cao Dung"
-                loading="lazy"
-                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+1'; this.onerror=null;"
-              />
-              <h4>Truong Cao Dung</h4>
-              <p data-translate="executive_vp">Executive VP and Board Member</p>
-              <img
-                src="src\Screenshot 2025-04-24 202107.png"
-                alt="NEC Logo"
-                class="partner-logo"
-                onerror="this.src='https://via.placeholder.com/100x50?text=NEC+Logo'; this.onerror=null;"
-              />
-            </div>
-            <div class="partner-card">
-              <img
-                src="src\Screenshot 2025-04-24 200541.png"
-                alt="Weihan Wu"
-                loading="lazy"
-                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+2'; this.onerror=null;"
-              />
-              <h4>Weihan Wu</h4>
-              <p data-translate="developer_relations">
-                Developer Relations Manager
-              </p>
-              <img
-                src="src\Screenshot_2025-04-24_201014-removebg-preview.png"
-                alt="NVIDIA Logo"
-                class="partner-logo"
-                onerror="this.src='https://via.placeholder.com/100x50?text=NVIDIA+Logo'; this.onerror=null;"
-              />
-            </div>
-            <div class="partner-card">
-              <img
-                src="src\OIP.jpg"
-                alt="Dr. Andrew Ng"
-                loading="lazy"
-                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+3'; this.onerror=null;"
-              />
-              <h4>Dr. Andrew Ng</h4>
-              <p data-translate="founder_ceo">Founder and CEO</p>
-              <img
-                src="src\Screenshot_2025-04-24_201336-removebg-preview.png"
-                alt="Landing AI Logo"
-                class="partner-logo"
-                onerror="this.src='https://via.placeholder.com/100x50?text=Landing+AI+Logo'; this.onerror=null;"
-              />
-            </div>
-            <div class="partner-card">
-              <img
-                src="src\original.jpg"
-                alt="Andreas Schick"
-                loading="lazy"
-                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+4'; this.onerror=null;"
-              />
-              <h4>Andreas Schick</h4>
-              <p data-translate="coo">Chief Operating Officer</p>
-              <img
-                src="src\Screenshot_2025-04-24_201617-removebg-preview.png"
-                alt="Schaeffler Logo"
-                class="partner-logo"
-                onerror="this.src='https://via.placeholder.com/100x50?text=Schaeffler+Logo'; this.onerror=null;"
-              />
-            </div>
-            <div class="partner-card">
-              <img
-                src="src\OIP (1).jpg"
-                alt="Charles Williams"
-                loading="lazy"
-                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+5'; this.onerror=null;"
-              />
-              <h4>Charles Williams</h4>
-              <p data-translate="product_owner">Product Owner</p>
-              <img
-                src="src\Screenshot_2025-04-24_203052-removebg-preview.png"
-                alt="Cognizant Logo"
-                class="partner-logo"
-                onerror="this.src='https://via.placeholder.com/100x50?text=Cognizant+Logo'; this.onerror=null;"
-              />
-            </div>
-            <div class="partner-card">
-              <img
-                src="src/partner6.jpg"
-                alt="Shusaku Hiraki"
-                loading="lazy"
-                onerror="this.src='https://via.placeholder.com/300x400?text=Partner+6'; this.onerror=null;"
-              />
-              <h4>Shusaku Hiraki</h4>
-              <p data-translate="it_strategist">IT Strategist</p>
-              <img
-                src="src/mitsui-logo.png"
-                alt="Mitsui Logo"
-                class="partner-logo"
-                onerror="this.src='https://via.placeholder.com/100x50?text=Mitsui+Logo'; this.onerror=null;"
-              />
-            </div>
-          </div>
-          <button
-            class="carousel-btn next-btn"
-            onclick="scrollCarousel('partner-carousel', 1)"
-          >
-            <i class="fas fa-chevron-right"></i>
-          </button>
         </div>
       </div>
     </section>
 
-    <!-- People & Culture -->
-    <section
-      id="people-culture"
-      class="section people-culture"
-      data-aos="fade-up"
-    >
+    <!-- Services CTA Section -->
+    <section class="services-cta" data-aos="fade-up">
       <div class="container">
-        <h2 class="section-title" data-translate="people_culture_title">
-          Beyond An Employer
-        </h2>
-        <p class="section-subtitle" data-translate="people_culture_subtitle">
-          Building an inclusive, future-ready and happy workforce, while
-          allowing our team to thrive on challenging missions and benefit from
-          the latest technologies
+        <h2 data-translate="cta_title">Unlock Your Business Potential</h2>
+        <p data-translate="cta_text">
+          Let SS IT empower your vision with innovative technology solutions.
+          Contact us today!
         </p>
-        <div class="culture-cards">
-          <div class="culture-card">
-            <img
-              src="src/culture1.webp"
-              alt="Thriving On Happiness"
-              loading="lazy"
+        <form id="consult-form" class="consult-form">
+          <div class="form-group">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your Name"
+              data-translate-placeholder="form_name"
+              required
             />
-            <h3 data-translate="culture_happiness">Thriving On Happiness</h3>
           </div>
-          <div class="culture-card">
-            <img
-              src="src/culture2.webp"
-              alt="Learning & Innovation"
-              loading="lazy"
+          <div class="form-group">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your Email"
+              data-translate-placeholder="form_email"
+              required
             />
-            <h3 data-translate="culture_learning">Learning & Innovation</h3>
           </div>
-          <div class="culture-card">
-            <img
-              src="src/culture3.webp"
-              alt="Culture Of Celebration"
-              loading="lazy"
-            />
-            <h3 data-translate="culture_celebration">Culture Of Celebration</h3>
-          </div>
-          <div class="culture-card">
-            <img
-              src="src/culture4.webp"
-              alt="Diversity & Inclusion"
-              loading="lazy"
-            />
-            <h3 data-translate="culture_diversity">Diversity & Inclusion</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- In The News -->
-    <section
-      id="in-the-news"
-      class="section in-the-news scroll-section"
-      data-aos="fade-up"
-    >
-      <div class="container">
-        <h2 class="section-title" data-translate="in_the_news_title">
-          We Go The
-          <span class="highlight" data-translate="extra_mile">Extra Mile</span>
-        </h2>
-        <p class="section-subtitle" data-translate="in_the_news_subtitle">
-          To help you keep the world in motion<br />
-          Together, we Accompany the Future
-        </p>
-        <div class="news-carousel">
-          <div class="news-items">
-            <div class="news-item">
-              <div class="news-date">12 July 2024</div>
-              <h3 data-translate="news_1_title">
-                SSIT Officially Established – A Promising Start to a Journey of
-                Innovation
-              </h3>
-            </div>
-            <div class="news-item">
-              <div class="news-date">01 October 2024</div>
-              <h3 data-translate="news_2_title">
-                SSIT Launches Its First Product – An AI-Powered Exam Grading
-                Application
-              </h3>
-            </div>
-            <div class="news-item">
-              <div class="news-date">15 January 2025</div>
-              <h3 data-translate="news_3_title">
-                SSIT Successfully Pilots Pharmacy Management Project – A Major
-                Step Toward Real-World Deployment
-              </h3>
-            </div>
-          </div>
-          <button class="carousel-arrow left-arrow" aria-label="Previous News">
-            <i class="fas fa-chevron-left"></i>
+          <button
+            type="submit"
+            class="btn primary"
+            data-translate="request_consult"
+          >
+            Request a Consultation
           </button>
-          <button class="carousel-arrow right-arrow" aria-label="Next News">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
+        </form>
       </div>
     </section>
 
@@ -696,58 +314,11 @@
         </div>
       </div>
     </footer>
-
-    <!-- Subnav (Fixed Bottom) -->
-    <nav class="subnav" data-aos="fade-up">
-      <div class="subnav-content">
-        <ul>
-          <li><a href="#overview" data-translate="overview">Overview</a></li>
-          <li>
-            <a href="#success-stories" data-translate="success_stories_title"
-              >Success Stories</a
-            >
-          </li>
-          <li>
-            <a
-              href="#services-industries"
-              data-translate="services_industries_title_short"
-              >Services & Industries</a
-            >
-          </li>
-          <li>
-            <a
-              href="#global-presence"
-              data-translate="global_presence_title_short"
-              >Global Presence</a
-            >
-          </li>
-          <li>
-            <a
-              href="#clients-partners"
-              data-translate="clients_partners_title_short"
-              >Clients & Partners</a
-            >
-          </li>
-          <li>
-            <a
-              href="#people-culture"
-              data-translate="people_culture_title_short"
-              >People & Culture</a
-            >
-          </li>
-          <li>
-            <a href="#in-the-news" data-translate="in_the_news_title_short"
-              >In The News</a
-            >
-          </li>
-        </ul>
-      </div>
-    </nav>
-
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
       AOS.init({ duration: 1000, once: true });
+
       const hamburger = document.querySelector(".hamburger");
       const navMenu = document.querySelector(".nav-menu");
       hamburger.addEventListener("click", () => {
@@ -766,7 +337,7 @@
       // Expanded translations object
       const translations = {
         en: {
-          title: "SS IT Vietnam - Technology Enabler",
+          title: "SS IT Vietnam - Dynamic Tech Startup",
           about: "About",
           services: "Services",
           industries: "Industries",
@@ -855,9 +426,50 @@
           clients_partners_title_short: "Clients & Partners",
           people_culture_title_short: "People & Culture",
           in_the_news_title_short: "In The News",
+          // Services translations
+          services_title:
+            "Transform Your Business with Cutting-Edge Technology",
+          services_subtitle:
+            "Partner with SS IT to harness AI, IoT, blockchain, and bespoke web solutions for unparalleled success.",
+          our_services: "Our Specialized Services",
+          service_ai: "Artificial Intelligence",
+          service_ai_desc:
+            "Develop intelligent systems with machine learning, NLP, and deep learning to automate processes and drive insights.",
+          service_ai_tech:
+            "Technologies: TensorFlow, PyTorch, OpenAI, AWS SageMaker",
+          service_iot: "Internet of Things (IoT)",
+          service_iot_desc:
+            "Build connected ecosystems for smart industries, optimizing operations with real-time data and analytics.",
+          service_iot_tech:
+            "Technologies: AWS IoT, Azure IoT, MQTT, Raspberry Pi",
+          service_blockchain: "Blockchain Development",
+          service_blockchain_desc:
+            "Create secure, decentralized applications for finance, supply chain, and data integrity.",
+          service_blockchain_tech:
+            "Technologies: Ethereum, Hyperledger, Solidity, Truffle",
+          service_web: "Web Development",
+          service_web_desc:
+            "Craft scalable, user-centric web applications tailored to your business goals.",
+          service_web_tech: "Technologies: React, Node.js, Next.js, MongoDB",
+          explore_services: "Discover Our Expertise",
+          learn_more: "Learn More",
+          case_studies_title: "Proven Success Stories",
+          case_study_1_title: "AI-Powered Retail Analytics",
+          case_study_1_desc:
+            "Developed an AI-driven analytics platform for a retail chain, increasing sales by 25% through predictive inventory management.",
+          case_study_2_title: "IoT Smart Factory",
+          case_study_2_desc:
+            "Implemented an IoT solution for a manufacturing plant, reducing downtime by 30% with real-time monitoring.",
+          read_case: "Read Case Study",
+          cta_title: "Unlock Your Business Potential",
+          cta_text:
+            "Let SS IT empower your vision with innovative technology solutions. Contact us today!",
+          request_consult: "Request a Consultation",
+          form_name: "Your Name",
+          form_email: "Your Email",
         },
         vi: {
-          title: "SS IT Việt Nam - Nhà cung cấp công nghệ toàn diện",
+          title: "SS IT Việt Nam - Khởi nghiệp Công nghệ Năng động",
           about: "Giới thiệu",
           services: "Dịch vụ",
           industries: "Ngành nghề",
@@ -949,9 +561,48 @@
           clients_partners_title_short: "Khách hàng & Đối tác",
           people_culture_title_short: "Con người & Văn hóa",
           in_the_news_title_short: "Tin tức",
+          // Services translations
+          services_title: "Chuyển đổi Doanh nghiệp với Công nghệ Tiên tiến",
+          services_subtitle:
+            "Hợp tác với SS IT để khai thác AI, IoT, blockchain và các giải pháp web tùy chỉnh để đạt được thành công vượt trội.",
+          our_services: "Dịch vụ Chuyên sâu",
+          service_ai: "Trí tuệ Nhân tạo",
+          service_ai_desc:
+            "Phát triển các hệ thống thông minh với máy học, xử lý ngôn ngữ tự nhiên và học sâu để tự động hóa quy trình và tạo ra giá trị.",
+          service_ai_tech:
+            "Công nghệ: TensorFlow, PyTorch, OpenAI, AWS SageMaker",
+          service_iot: "Internet vạn vật (IoT)",
+          service_iot_desc:
+            "Xây dựng hệ sinh thái kết nối cho các ngành công nghiệp thông minh, tối ưu hóa hoạt động với dữ liệu và phân tích thời gian thực.",
+          service_iot_tech: "Công nghệ: AWS IoT, Azure IoT, MQTT, Raspberry Pi",
+          service_blockchain: "Phát triển Blockchain",
+          service_blockchain_desc:
+            "Tạo các ứng dụng phi tập trung an toàn cho tài chính, chuỗi cung ứng và bảo mật dữ liệu.",
+          service_blockchain_tech:
+            "Công nghệ: Ethereum, Hyperledger, Solidity, Truffle",
+          service_web: "Phát triển Web",
+          service_web_desc:
+            "Thiết kế các ứng dụng web có khả năng mở rộng, lấy người dùng làm trung tâm, phù hợp với mục tiêu kinh doanh của bạn.",
+          service_web_tech: "Công nghệ: React, Node.js, Next.js, MongoDB",
+          explore_services: "Khám phá Chuyên môn",
+          learn_more: "Tìm hiểu Thêm",
+          case_studies_title: "Câu chuyện Thành công Đã được Chứng minh",
+          case_study_1_title: "Phân tích Bán lẻ Dựa trên AI",
+          case_study_1_desc:
+            "Phát triển nền tảng phân tích sử dụng AI cho một chuỗi bán lẻ, tăng doanh số 25% thông qua quản lý hàng tồn kho dự đoán.",
+          case_study_2_title: "Nhà máy Thông minh IoT",
+          case_study_2_desc:
+            "Triển khai giải pháp IoT cho một nhà máy sản xuất, giảm thời gian ngừng hoạt động 30% với giám sát thời gian thực.",
+          read_case: "Đọc Nghiên cứu",
+          cta_title: "Khai phá Tiềm năng Doanh nghiệp",
+          cta_text:
+            "Hãy để SS IT hiện thực hóa tầm nhìn của bạn với các giải pháp công nghệ sáng tạo. Liên hệ ngay hôm nay!",
+          request_consult: "Yêu cầu Tư vấn",
+          form_name: "Họ và Tên",
+          form_email: "Email",
         },
         zh: {
-          title: "SS IT 越南 - 综合技术赋能者",
+          title: "SS IT 越南 - 充满活力的科技初创公司",
           about: "关于我们",
           services: "服务",
           industries: "行业",
@@ -1035,9 +686,46 @@
           clients_partners_title_short: "客户与合作伙伴",
           people_culture_title_short: "人才与文化",
           in_the_news_title_short: "新闻动态",
+          // Services translations
+          services_title: "以尖端技术转变您的业务",
+          services_subtitle:
+            "与 SS IT 合作，利用人工智能、物联网、区块链和定制 Web 解决方案，获得无与伦比的成功。",
+          our_services: "专业服务",
+          service_ai: "人工智能",
+          service_ai_desc:
+            "利用机器学习、自然语言处理和深度学习开发智能系统，自动化流程并推动洞察。",
+          service_ai_tech: "技术：TensorFlow、PyTorch、OpenAI、AWS SageMaker",
+          service_iot: "物联网 (IoT)",
+          service_iot_desc:
+            "为智能行业构建互联生态系统，通过实时数据和分析优化运营。",
+          service_iot_tech: "技术：AWS IoT、Azure IoT、MQTT、Raspberry Pi",
+          service_blockchain: "区块链开发",
+          service_blockchain_desc:
+            "为金融、供应链和数据完整性创建安全的去中心化应用程序。",
+          service_blockchain_tech:
+            "技术：Ethereum、Hyperledger、Solidity、Truffle",
+          service_web: "Web 开发",
+          service_web_desc:
+            "打造可扩展、以用户为中心的 Web 应用程序，满足您的业务目标。",
+          service_web_tech: "技术：React、Node.js、Next.js、MongoDB",
+          explore_services: "发现我们的专长",
+          learn_more: "了解更多",
+          case_studies_title: "经过验证的成功案例",
+          case_study_1_title: "人工智能驱动的零售分析",
+          case_study_1_desc:
+            "为零售连锁店开发了人工智能驱动的分析平台，通过预测性库存管理将销售额提高了 25%。",
+          case_study_2_title: "物联网智能工厂",
+          case_study_2_desc:
+            "为制造工厂实施了物联网解决方案，通过实时监控将停机时间减少了 30%。",
+          read_case: "阅读案例研究",
+          cta_title: "释放您的业务潜力",
+          cta_text: "让 SS IT 以创新技术解决方案赋能您的愿景。今天就联系我们！",
+          request_consult: "请求咨询",
+          form_name: "您的姓名",
+          form_email: "您的电子邮件",
         },
         ja: {
-          title: "SS IT ベトナム - 総合技術イネーブラー",
+          title: "SS IT ベトナム - ダイナミックなテックスタートアップ",
           about: "私たちについて",
           services: "サービス",
           industries: "業界",
@@ -1123,6 +811,44 @@
           clients_partners_title_short: "クライアント＆パートナー",
           people_culture_title_short: "人材＆文化",
           in_the_news_title_short: "ニュース",
+          // Services translations
+          services_title: "最先端技術でビジネスを変革",
+          services_subtitle:
+            "SS ITと提携し、AI、IoT、ブロックチェーン、カスタムWebソリューションを活用して、比類のない成功を収めましょう。",
+          our_services: "専門サービス",
+          service_ai: "人工知能",
+          service_ai_desc:
+            "機械学習、自然言語処理、深層学習を活用して、プロセスを自動化し、洞察を推進するインテリジェントなシステムを開発します。",
+          service_ai_tech: "技術：TensorFlow、PyTorch、OpenAI、AWS SageMaker",
+          service_iot: "モノのインターネット（IoT）",
+          service_iot_desc:
+            "スマート産業向けに接続されたエコシステムを構築し、リアルタイムデータと分析で運用を最適化します。",
+          service_iot_tech: "技術：AWS IoT、Azure IoT、MQTT、Raspberry Pi",
+          service_blockchain: "ブロックチェーン開発",
+          service_blockchain_desc:
+            "金融、サプライチェーン、データ整合性のために、安全な分散型アプリケーションを作成します。",
+          service_blockchain_tech:
+            "技術：Ethereum、Hyperledger、Solidity、Truffle",
+          service_web: "Web開発",
+          service_web_desc:
+            "ビジネス目標に合わせた、スケーラブルでユーザー中心のWebアプリケーションを構築します。",
+          service_web_tech: "技術：React、Node.js、Next.js、MongoDB",
+          explore_services: "私たちの専門知識を発見",
+          learn_more: "詳細はこちら",
+          case_studies_title: "実証済みの成功事例",
+          case_study_1_title: "AIを活用した小売分析",
+          case_study_1_desc:
+            "小売チェーン向けにAI駆動の分析プラットフォームを開発し、予測的在庫管理により売上を25％増加させました。",
+          case_study_2_title: "IoTスマートファクトリー",
+          case_study_2_desc:
+            "製造工場向けにIoTソリューションを導入し、リアルタイム監視によりダウンタイムを30％削減しました。",
+          read_case: "ケーススタディを読む",
+          cta_title: "ビジネスの可能性を解き放つ",
+          cta_text:
+            "SS ITに革新的な技術ソリューションであなたのビジョンを強化させましょう。今日、連絡してください！",
+          request_consult: "相談を依頼",
+          form_name: "お名前",
+          form_email: "メールアドレス",
         },
       };
 
@@ -1159,7 +885,6 @@
         storyImage.src = story.image;
         storyImage.alt = story.alt;
 
-        // Update active tab
         document.querySelectorAll(".story-tabs .tab").forEach((tab) => {
           tab.classList.remove("active");
         });
@@ -1167,7 +892,6 @@
           .querySelector(`.story-tabs .tab[onclick="showStory('${storyKey}')"]`)
           .classList.add("active");
 
-        // Update tab text based on current language
         document.querySelectorAll(".story-tabs .tab").forEach((tab) => {
           const key = tab.getAttribute("data-translate");
           tab.textContent = translations[lang][key];
@@ -1180,17 +904,22 @@
         document.querySelectorAll("[data-translate]").forEach((element) => {
           const key = element.getAttribute("data-translate");
           if (t[key]) {
-            element.innerHTML = t[key].replace(/<br>/g, "<br>"); // Preserve <br> tags
+            element.innerHTML = t[key].replace(/<br>/g, "<br>");
           }
         });
+        document
+          .querySelectorAll("[data-translate-placeholder]")
+          .forEach((element) => {
+            const key = element.getAttribute("data-translate-placeholder");
+            if (t[key]) {
+              element.placeholder = t[key];
+            }
+          });
 
-        // Update success stories tabs and current story
-        showStory(
-          document
-            .querySelector(".story-tabs .tab.active")
-            .getAttribute("onclick")
-            .match(/'([^']+)'/)[1]
-        );
+        const activeTab = document.querySelector(".story-tabs .tab.active");
+        if (activeTab) {
+          showStory(activeTab.getAttribute("onclick").match(/'([^']+)'/)[1]);
+        }
       };
 
       const languageSwitcher = document.getElementById("languageSwitcher");
@@ -1198,26 +927,31 @@
       languageSwitcher.addEventListener("change", (e) => {
         const lang = e.target.value;
         updateLanguage(lang);
-        localStorage.setItem("lang", lang); // Save selected language
+        localStorage.setItem("lang", lang);
       });
 
-      // Initialize with saved language
       const savedLang = localStorage.getItem("lang") || "en";
       languageSwitcher.value = savedLang;
       updateLanguage(savedLang);
+
+      // Form submission handling (client-side example)
+      const consultForm = document.getElementById("consult-form");
+      consultForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Consultation request submitted! We'll get back to you soon.");
+        consultForm.reset();
+      });
     </script>
     <script>
-      // Initialize Lenis for smooth scrolling
       const lenis = new Lenis({
-        duration: 1.2, // Adjust for smoother or faster scrolling
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Ease-in-out
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smooth: true,
-        smoothTouch: true, // Enable smooth scrolling on touch devices
-        wheelMultiplier: 0.8, // Adjust scroll sensitivity
-        touchMultiplier: 2, // Adjust touch sensitivity
+        smoothTouch: true,
+        wheelMultiplier: 0.8,
+        touchMultiplier: 2,
       });
 
-      // Animation frame for Lenis
       function raf(time) {
         lenis.raf(time);
         requestAnimationFrame(raf);
@@ -1225,7 +959,6 @@
 
       requestAnimationFrame(raf);
 
-      // Sync Lenis with subnav link clicks
       document.querySelectorAll(".subnav a").forEach((link) => {
         link.addEventListener("click", (e) => {
           e.preventDefault();
@@ -1235,13 +968,12 @@
             lenis.scrollTo(targetSection, {
               duration: 1.5,
               easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-              offset: -50, // Adjust for header offset
+              offset: -50,
             });
           }
         });
       });
 
-      // Pause/resume video playback based on visibility
       const videos = document.querySelectorAll("video");
       const observer = new IntersectionObserver(
         (entries) => {
@@ -1258,40 +990,6 @@
       videos.forEach((video) => observer.observe(video));
     </script>
     <script>
-      (function () {
-        function c() {
-          var b = a.contentDocument || a.contentWindow.document;
-          if (b) {
-            var d = b.createElement("script");
-            d.innerHTML =
-              "window.__CF$cv$params={r:'934a2267cdd37b96',t:'MTc0NTM3NzQ3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-            b.getElementsByTagName("head")[0].appendChild(d);
-          }
-        }
-        if (document.body) {
-          var a = document.createElement("iframe");
-          a.height = 1;
-          a.width = 1;
-          a.style.position = "absolute";
-          a.style.top = 0;
-          a.style.left = 0;
-          a.style.border = "none";
-          a.style.visibility = "hidden";
-          document.body.appendChild(a);
-          if ("loading" !== document.readyState) c();
-          else if (window.addEventListener)
-            document.addEventListener("DOMContentLoaded", c);
-          else {
-            var e = document.onreadystatechange || function () {};
-            document.onreadystatechange = function (b) {
-              e(b);
-              "loading" !== document.readyState &&
-                ((document.onreadystatechange = e), c());
-            };
-          }
-        }
-      })();
-      // Chat Window Toggle
       const chatBtn = document.querySelector(".chat-btn");
       const chatWindow = document.getElementById("chatWindow");
       const closeChat = document.querySelector(".close-chat");
@@ -1304,12 +1002,10 @@
         chatWindow.classList.remove("active");
       });
 
-      // Gemini API Integration
       const chatBody = document.getElementById("chatBody");
       const chatInput = document.getElementById("chatInput");
       const sendMessage = document.getElementById("sendMessage");
 
-      // Hàm hiển thị typing indicator
       function showTypingIndicator() {
         const typingDiv = document.createElement("div");
         typingDiv.classList.add("typing-indicator");
@@ -1319,7 +1015,6 @@
         chatBody.scrollTop = chatBody.scrollHeight;
       }
 
-      // Hàm xóa typing indicator
       function removeTypingIndicator() {
         const typingIndicator = document.getElementById("typingIndicator");
         if (typingIndicator) {
@@ -1328,7 +1023,7 @@
       }
 
       async function sendMessageToGemini(message) {
-        const apiKey = "AIzaSyAXnQcv3OiRfZlA7dqxcpy_P42x08BkxuU"; // Thay bằng API key của mày
+        const apiKey = "AIzaSyAXnQcv3OiRfZlA7dqxcpy_P42x08BkxuU";
         const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
         const response = await fetch(url, {
@@ -1359,34 +1054,25 @@
         const message = chatInput.value.trim();
         if (!message) return;
 
-        // Hiển thị tin nhắn người dùng
         const userMessage = document.createElement("div");
         userMessage.classList.add("message", "user-message");
         userMessage.innerHTML = `<p>${message}</p>`;
         chatBody.appendChild(userMessage);
         chatBody.scrollTop = chatBody.scrollHeight;
 
-        // Xóa input
         chatInput.value = "";
-
-        // Hiển thị typing indicator
         showTypingIndicator();
 
-        // Gọi Gemini API
         try {
           const botResponse = await sendMessageToGemini(message);
-
-          // Xóa typing indicator
           removeTypingIndicator();
 
-          // Hiển thị phản hồi từ bot
           const botMessage = document.createElement("div");
           botMessage.classList.add("message", "bot-message");
           botMessage.innerHTML = `<p>${botResponse}</p>`;
           chatBody.appendChild(botMessage);
           chatBody.scrollTop = chatBody.scrollHeight;
         } catch (error) {
-          // Xóa typing indicator
           removeTypingIndicator();
 
           const lang = document.getElementById("languageSwitcher").value;
@@ -1401,69 +1087,34 @@
         }
       });
 
-      // Gửi tin nhắn khi nhấn Enter
       chatInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
           sendMessage.click();
         }
       });
 
-      // Cập nhật placeholder của input trong hàm updateLanguage
       const originalUpdateLanguage = updateLanguage;
       updateLanguage = (lang) => {
         originalUpdateLanguage(lang);
         const chatInput = document.getElementById("chatInput");
-        chatInput.placeholder = translations[lang]["chat_input_placeholder"];
+        chatInput.placeholder =
+          translations[lang]["chat_input_placeholder"] ||
+          "Type your message...";
       };
     </script>
     <script>
-      (function () {
-        function c() {
-          var b = a.contentDocument || a.contentWindow.document;
-          if (b) {
-            var d = b.createElement("script");
-            d.innerHTML =
-              "window.__CF$cv$params={r:'935568051942bcce',t:'MTc0NTQ5NTY3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-            b.getElementsByTagName("head")[0].appendChild(d);
-          }
-        }
-        if (document.body) {
-          var a = document.createElement("iframe");
-          a.height = 1;
-          a.width = 1;
-          a.style.position = "absolute";
-          a.style.top = 0;
-          a.style.left = 0;
-          a.style.border = "none";
-          a.style.visibility = "hidden";
-          document.body.appendChild(a);
-          if ("loading" !== document.readyState) c();
-          else if (window.addEventListener)
-            document.addEventListener("DOMContentLoaded", c);
-          else {
-            var e = document.onreadystatechange || function () {};
-            document.onreadystatechange = function (b) {
-              e(b);
-              "loading" !== document.readyState &&
-                ((document.onreadystatechange = e), c());
-            };
-          }
-        }
-      })();
-      document
-        .querySelectorAll(".service-card, .partner-card")
-        .forEach((card) => {
-          card.addEventListener("mouseenter", () => {
-            card.style.willChange = "transform";
-          });
-          card.addEventListener("mouseleave", () => {
-            card.style.willChange = "auto";
-          });
+      document.querySelectorAll(".service-card, .case-card").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          card.style.willChange = "transform";
         });
+        card.addEventListener("mouseleave", () => {
+          card.style.willChange = "auto";
+        });
+      });
     </script>
     <script>
       AOS.init({
-        duration: 400,
+        duration: 800,
         easing: "ease-out",
         once: true,
         mirror: false,
